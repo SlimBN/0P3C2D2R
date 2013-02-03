@@ -1,0 +1,33 @@
+State:
+    type: entity
+    repositoryClass: WuCore\CentralBundle\Repository\StateRepository
+    table: state
+    fields:
+        id:
+            id: true
+            type: integer
+            unsigned: false
+            nullable: false
+            generator:
+                strategy: IDENTITY
+        name:
+            type: string
+            length: 64
+            fixed: false
+            nullable: false
+        slug:
+            type: string
+            length: 64
+            fixed: false
+            nullable: false
+    manyToOne:
+        country:
+            targetEntity: Country
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                country_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

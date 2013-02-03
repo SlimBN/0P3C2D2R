@@ -1,0 +1,49 @@
+Country:
+    type: entity
+    repositoryClass: WuCore\CentralBundle\Repository\CountryRepository
+    table: country
+    fields:
+        id:
+            id: true
+            type: integer
+            unsigned: false
+            nullable: false
+            generator:
+                strategy: IDENTITY
+        name:
+            type: string
+            length: 64
+            fixed: false
+            nullable: false
+        languages:
+            type: text
+            nullable: true
+        ref:
+            type: string
+            length: 45
+            fixed: false
+            nullable: true
+        coordLat:
+            type: decimal
+            nullable: true
+            column: coord_lat
+        coordLong:
+            type: decimal
+            nullable: true
+            column: coord_long
+        phonePrefix:
+            type: integer
+            unsigned: false
+            nullable: true
+            column: phone_prefix
+    manyToOne:
+        defaultCurrency:
+            targetEntity: Currency
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                default_currency_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

@@ -1,0 +1,75 @@
+Subscription:
+    type: entity
+    repositoryClass: WuCore\CentralBundle\Repository\SubscriptionRepository
+    table: subscription
+    fields:
+        id:
+            id: true
+            type: integer
+            unsigned: false
+            nullable: false
+            generator:
+                strategy: IDENTITY
+        createdAt:
+            type: datetime
+            nullable: false
+            column: created_at
+        updatedAt:
+            type: datetime
+            nullable: false
+            column: updated_at
+    manyToMany:
+        notification:
+            targetEntity: Notification
+            cascade: {  }
+            mappedBy: null
+            inversedBy: subscription
+            joinTable:
+                name: subscription_has_notification
+                joinColumns:
+                    -
+                        name: subscription_id
+                        referencedColumnName: id
+                inverseJoinColumns:
+                    -
+                        name: notification_id
+                        referencedColumnName: id
+            orderBy: null
+    manyToOne:
+        product:
+            targetEntity: Product
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                product_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+        comparaison:
+            targetEntity: Comparaison
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                comparaison_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+        manufacturer:
+            targetEntity: Manufacturer
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                manufacturer_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+        shop:
+            targetEntity: Shop
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                shop_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

@@ -1,0 +1,16 @@
+parameters:
+    database_driver: pdo_mysql
+    database_host: 127.0.0.1
+    database_port: null
+    database_name_front: wuzbest_front
+    database_name_product: wuzbest_front
+    database_name_stat: wuzbest_front
+    database_user: root
+    database_password: null
+    mailer_transport: smtp
+    mailer_host: 127.0.0.1
+    mailer_user: null
+    mailer_password: null
+    locale: en
+    secret: fcca596c71510e77359af9bc67363ab06
+    database_path: null
