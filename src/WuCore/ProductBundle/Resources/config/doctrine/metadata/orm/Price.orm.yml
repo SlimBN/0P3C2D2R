@@ -1,0 +1,54 @@
+Price:
+    type: entity
+    table: price
+    fields:
+        id:
+            id: true
+            type: integer
+            unsigned: false
+            nullable: false
+            generator:
+                strategy: IDENTITY
+        amount:
+            type: decimal
+            nullable: true
+        createdAt:
+            type: datetime
+            nullable: true
+            column: created_at
+        availableUntil:
+            type: date
+            nullable: true
+            column: available_until
+        isLimited:
+            type: boolean
+            nullable: true
+            column: is_limited
+    manyToMany:
+        product:
+            targetEntity: Product
+            cascade: {  }
+            mappedBy: price
+            inversedBy: null
+            joinTable: null
+            orderBy: null
+    manyToOne:
+        manufacturer:
+            targetEntity: Manufacturer
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                manufacturer_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+        currency:
+            targetEntity: Currency
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                currency_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

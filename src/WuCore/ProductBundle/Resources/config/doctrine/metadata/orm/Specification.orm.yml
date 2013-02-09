@@ -1,0 +1,60 @@
+Specification:
+    type: entity
+    table: specification
+    fields:
+        id:
+            id: true
+            type: integer
+            unsigned: false
+            nullable: false
+            generator:
+                strategy: IDENTITY
+        valueName:
+            type: string
+            length: 64
+            fixed: false
+            nullable: false
+            column: value_name
+        shownValue:
+            type: string
+            length: 64
+            fixed: false
+            nullable: false
+            column: shown_value
+        refValue:
+            type: integer
+            unsigned: false
+            nullable: false
+            column: ref_value
+        modelDate:
+            type: date
+            nullable: true
+            column: model_date
+    manyToMany:
+        product:
+            targetEntity: Product
+            cascade: {  }
+            mappedBy: specification
+            inversedBy: null
+            joinTable: null
+            orderBy: null
+    manyToOne:
+        component:
+            targetEntity: Product
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                component_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+        predecessor:
+            targetEntity: Specification
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                predecessor_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

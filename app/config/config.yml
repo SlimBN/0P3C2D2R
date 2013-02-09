@@ -78,7 +78,23 @@ doctrine:
               enum: string
     orm:
         auto_generate_proxy_classes: "%kernel.debug%"
-        auto_mapping: true
+        default_entity_manager: front
+        entity_managers:
+          front:
+            connection: front
+            mappings:                    
+              WuCoreFrontBundle:
+                dir: Entity/
+          products:
+            connection: products
+            mappings:                 
+              WuCoreProductBundle:
+                dir: Entity/
+          stats:
+            connection: stats
+            mappings:                 
+              WuCoreStatsBundle:
+                dir: Entity/
 
 # Swiftmailer Configuration
 swiftmailer:

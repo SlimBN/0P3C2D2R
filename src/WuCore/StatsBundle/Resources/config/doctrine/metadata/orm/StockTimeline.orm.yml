@@ -1,0 +1,22 @@
+StockTimeline:
+    type: entity
+    table: stock_timeline
+    fields:
+        id:
+            id: true
+            type: integer
+            unsigned: false
+            nullable: false
+            generator:
+                strategy: IDENTITY
+        stockValue:
+            type: string
+            length: 45
+            fixed: false
+            nullable: true
+            column: stock_value
+        createdAt:
+            type: datetime
+            nullable: true
+            column: created_at
+    lifecycleCallbacks: {  }

@@ -1,0 +1,70 @@
+Vote:
+    type: entity
+    table: vote
+    fields:
+        id:
+            id: true
+            type: integer
+            unsigned: false
+            nullable: false
+            generator:
+                strategy: IDENTITY
+        value:
+            type: integer
+            unsigned: false
+            nullable: false
+        createdAt:
+            type: datetime
+            nullable: false
+            column: created_at
+        updatedAt:
+            type: datetime
+            nullable: false
+            column: updated_at
+    manyToOne:
+        user:
+            targetEntity: User
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                user_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+        post:
+            targetEntity: Post
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                post_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+        comparaison:
+            targetEntity: Comparaison
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                comparaison_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+        product:
+            targetEntity: Product
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                product_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+        specification:
+            targetEntity: Specification
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                specification_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

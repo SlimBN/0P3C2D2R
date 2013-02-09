@@ -1,0 +1,75 @@
+Comparaison:
+    type: entity
+    table: comparaison
+    fields:
+        id:
+            id: true
+            type: integer
+            unsigned: false
+            nullable: false
+            generator:
+                strategy: IDENTITY
+        createdAt:
+            type: datetime
+            nullable: true
+            column: created_at
+        slug:
+            type: string
+            length: 128
+            fixed: false
+            nullable: false
+    manyToMany:
+        comment:
+            targetEntity: Comment
+            cascade: {  }
+            mappedBy: null
+            inversedBy: comparaison
+            joinTable:
+                name: comparaison_has_comment
+                joinColumns:
+                    -
+                        name: comparaison_id
+                        referencedColumnName: id
+                inverseJoinColumns:
+                    -
+                        name: comment_id
+                        referencedColumnName: id
+            orderBy: null
+    manyToOne:
+        category:
+            targetEntity: Category
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                category_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+        firstProduct:
+            targetEntity: Product
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                first_product_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+        secondProduct:
+            targetEntity: Product
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                second_product_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+        user:
+            targetEntity: User
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                user_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

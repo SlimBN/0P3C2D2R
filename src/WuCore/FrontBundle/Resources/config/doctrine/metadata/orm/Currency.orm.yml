@@ -1,0 +1,21 @@
+Currency:
+    type: entity
+    table: currency
+    fields:
+        id:
+            id: true
+            type: integer
+            unsigned: false
+            nullable: false
+            generator:
+                strategy: IDENTITY
+        ref:
+            type: string
+            length: 45
+            fixed: false
+            nullable: false
+        valueToUsd:
+            type: float
+            nullable: false
+            column: value_to_usd
+    lifecycleCallbacks: {  }

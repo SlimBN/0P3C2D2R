@@ -1,0 +1,54 @@
+Category:
+    type: entity
+    table: category
+    fields:
+        id:
+            id: true
+            type: integer
+            unsigned: false
+            nullable: false
+            generator:
+                strategy: IDENTITY
+        name:
+            type: string
+            length: 64
+            fixed: false
+            nullable: true
+        slug:
+            type: string
+            length: 64
+            fixed: false
+            nullable: false
+    manyToMany:
+        manufacturer:
+            targetEntity: Manufacturer
+            cascade: {  }
+            mappedBy: category
+            inversedBy: null
+            joinTable: null
+            orderBy: null
+        product:
+            targetEntity: Product
+            cascade: {  }
+            mappedBy: category
+            inversedBy: null
+            joinTable: null
+            orderBy: null
+        shop:
+            targetEntity: Shop
+            cascade: {  }
+            mappedBy: category
+            inversedBy: null
+            joinTable: null
+            orderBy: null
+    manyToOne:
+        parent:
+            targetEntity: Category
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                parent_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

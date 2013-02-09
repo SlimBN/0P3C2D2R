@@ -1,0 +1,49 @@
+Notification:
+    type: entity
+    table: notification
+    fields:
+        id:
+            id: true
+            type: integer
+            unsigned: false
+            nullable: false
+            generator:
+                strategy: IDENTITY
+        content:
+            type: string
+            length: 128
+            fixed: false
+            nullable: false
+        link:
+            type: string
+            length: 128
+            fixed: false
+            nullable: false
+        type:
+            type: integer
+            unsigned: false
+            nullable: false
+        createdAt:
+            type: datetime
+            nullable: false
+            column: created_at
+        viewAt:
+            type: datetime
+            nullable: true
+            column: view_at
+    manyToMany:
+        subscription:
+            targetEntity: Subscription
+            cascade: {  }
+            mappedBy: notification
+            inversedBy: null
+            joinTable: null
+            orderBy: null
+        user:
+            targetEntity: User
+            cascade: {  }
+            mappedBy: notification
+            inversedBy: null
+            joinTable: null
+            orderBy: null
+    lifecycleCallbacks: {  }

@@ -1,0 +1,161 @@
+User:
+    type: entity
+    table: user
+    fields:
+        id:
+            id: true
+            type: integer
+            unsigned: false
+            nullable: false
+            generator:
+                strategy: IDENTITY
+        username:
+            type: string
+            length: 255
+            fixed: false
+            nullable: false
+        usernameCanonical:
+            type: string
+            length: 255
+            fixed: false
+            nullable: false
+            column: username_canonical
+        email:
+            type: string
+            length: 255
+            fixed: false
+            nullable: false
+        emailCanonical:
+            type: string
+            length: 255
+            fixed: false
+            nullable: false
+            column: email_canonical
+        enabled:
+            type: boolean
+            nullable: false
+        salt:
+            type: string
+            length: 255
+            fixed: false
+            nullable: false
+        password:
+            type: string
+            length: 255
+            fixed: false
+            nullable: false
+        lastLogin:
+            type: datetime
+            nullable: true
+            column: last_login
+        locked:
+            type: boolean
+            nullable: false
+        expired:
+            type: boolean
+            nullable: false
+        expiresAt:
+            type: datetime
+            nullable: true
+            column: expires_at
+        confirmationToken:
+            type: string
+            length: 255
+            fixed: false
+            nullable: true
+            column: confirmation_token
+        passwordRequestedAt:
+            type: datetime
+            nullable: true
+            column: password_requested_at
+        roles:
+            type: array
+            nullable: false
+        credentialsExpired:
+            type: boolean
+            nullable: false
+            column: credentials_expired
+        credentialsExpireAt:
+            type: datetime
+            nullable: true
+            column: credentials_expire_at
+    manyToMany:
+        credibility:
+            targetEntity: Credibility
+            cascade: {  }
+            mappedBy: null
+            inversedBy: user
+            joinTable:
+                name: user_has_credibility
+                joinColumns:
+                    -
+                        name: user_id
+                        referencedColumnName: id
+                inverseJoinColumns:
+                    -
+                        name: credibility_id
+                        referencedColumnName: id
+            orderBy: null
+        notification:
+            targetEntity: Notification
+            cascade: {  }
+            mappedBy: null
+            inversedBy: user
+            joinTable:
+                name: user_has_notification
+                joinColumns:
+                    -
+                        name: user_id
+                        referencedColumnName: id
+                inverseJoinColumns:
+                    -
+                        name: notification_id
+                        referencedColumnName: id
+            orderBy: null
+    manyToOne:
+        city:
+            targetEntity: City
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                city_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+        country:
+            targetEntity: Country
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                country_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+        currency:
+            targetEntity: Currency
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                currency_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+        avatar:
+            targetEntity: Picture
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                avatar:
+                    referencedColumnName: id
+            orphanRemoval: false
+        state:
+            targetEntity: State
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                state_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

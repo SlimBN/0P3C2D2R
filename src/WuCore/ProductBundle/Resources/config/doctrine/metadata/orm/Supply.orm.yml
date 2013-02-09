@@ -1,0 +1,61 @@
+Supply:
+    type: entity
+    table: supply
+    fields:
+        id:
+            id: true
+            type: integer
+            unsigned: false
+            nullable: false
+            generator:
+                strategy: IDENTITY
+        supplyCount:
+            type: integer
+            unsigned: false
+            nullable: true
+            column: supply_count
+        createdAt:
+            type: datetime
+            nullable: true
+            column: created_at
+        updatedAt:
+            type: date
+            nullable: true
+            column: updated_at
+    manyToMany:
+        comment:
+            targetEntity: Comment
+            cascade: {  }
+            mappedBy: null
+            inversedBy: supply
+            joinTable:
+                name: supply_has_comment
+                joinColumns:
+                    -
+                        name: supply_id
+                        referencedColumnName: id
+                inverseJoinColumns:
+                    -
+                        name: comment_id
+                        referencedColumnName: id
+            orderBy: null
+    manyToOne:
+        product:
+            targetEntity: Product
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                product_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+        shop:
+            targetEntity: Shop
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                shop_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

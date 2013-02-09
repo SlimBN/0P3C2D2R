@@ -1,0 +1,60 @@
+ResearchQuery:
+    type: entity
+    table: research_query
+    fields:
+        id:
+            id: true
+            type: integer
+            unsigned: false
+            nullable: false
+            generator:
+                strategy: IDENTITY
+        keyWord:
+            type: string
+            length: 64
+            fixed: false
+            nullable: false
+            column: key_word
+        slug:
+            type: string
+            length: 64
+            fixed: false
+            nullable: false
+        searchCount:
+            type: integer
+            unsigned: false
+            nullable: false
+            column: search_count
+        searchSuccess:
+            type: integer
+            unsigned: false
+            nullable: false
+            column: search_success
+    manyToMany:
+        user:
+            targetEntity: User
+            cascade: {  }
+            mappedBy: null
+            inversedBy: researchQuery
+            joinTable:
+                name: research_query_has_user
+                joinColumns:
+                    -
+                        name: research_query_id
+                        referencedColumnName: id
+                inverseJoinColumns:
+                    -
+                        name: user_id
+                        referencedColumnName: id
+            orderBy: null
+    manyToOne:
+        device:
+            targetEntity: Device
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                device_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

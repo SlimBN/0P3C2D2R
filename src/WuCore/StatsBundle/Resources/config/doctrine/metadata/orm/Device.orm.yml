@@ -1,0 +1,69 @@
+Device:
+    type: entity
+    table: device
+    fields:
+        id:
+            id: true
+            type: integer
+            unsigned: false
+            nullable: false
+            generator:
+                strategy: IDENTITY
+        type:
+            type: string
+            length: null
+            fixed: false
+            nullable: true
+        model:
+            type: string
+            length: 64
+            fixed: false
+            nullable: true
+        browser:
+            type: string
+            length: 64
+            fixed: false
+            nullable: true
+        modelSlug:
+            type: string
+            length: 64
+            fixed: false
+            nullable: true
+            column: model_slug
+        browserSlug:
+            type: string
+            length: 64
+            fixed: false
+            nullable: true
+            column: browser_slug
+        createdAt:
+            type: datetime
+            nullable: true
+            column: created_at
+        updatedAt:
+            type: datetime
+            nullable: true
+            column: updated_at
+        vistsCount:
+            type: integer
+            unsigned: false
+            nullable: true
+            column: vists_count
+    manyToMany:
+        user:
+            targetEntity: User
+            cascade: {  }
+            mappedBy: null
+            inversedBy: device
+            joinTable:
+                name: device_has_user
+                joinColumns:
+                    -
+                        name: device_id
+                        referencedColumnName: id
+                inverseJoinColumns:
+                    -
+                        name: user_id
+                        referencedColumnName: id
+            orderBy: null
+    lifecycleCallbacks: {  }

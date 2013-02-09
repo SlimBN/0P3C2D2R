@@ -1,0 +1,51 @@
+Question:
+    type: entity
+    table: question
+    fields:
+        id:
+            id: true
+            type: integer
+            unsigned: false
+            nullable: false
+            generator:
+                strategy: IDENTITY
+        content:
+            type: text
+            nullable: true
+        status:
+            type: string
+            length: null
+            fixed: false
+            nullable: true
+        createdAt:
+            type: datetime
+            nullable: true
+            column: created_at
+    manyToMany:
+        answer:
+            targetEntity: Answer
+            cascade: {  }
+            mappedBy: null
+            inversedBy: question
+            joinTable:
+                name: question_has_answer
+                joinColumns:
+                    -
+                        name: question_id
+                        referencedColumnName: id
+                inverseJoinColumns:
+                    -
+                        name: answer_id
+                        referencedColumnName: id
+            orderBy: null
+    manyToOne:
+        user:
+            targetEntity: User
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                user_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

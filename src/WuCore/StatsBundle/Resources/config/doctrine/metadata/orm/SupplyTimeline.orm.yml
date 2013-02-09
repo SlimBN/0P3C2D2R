@@ -1,0 +1,31 @@
+SupplyTimeline:
+    type: entity
+    table: supply_timeline
+    fields:
+        id:
+            id: true
+            type: integer
+            unsigned: false
+            nullable: false
+            generator:
+                strategy: IDENTITY
+        supplyCount:
+            type: integer
+            unsigned: false
+            nullable: true
+            column: supply_count
+        createdAt:
+            type: datetime
+            nullable: true
+            column: created_at
+    manyToOne:
+        supply:
+            targetEntity: Supply
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                supply_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

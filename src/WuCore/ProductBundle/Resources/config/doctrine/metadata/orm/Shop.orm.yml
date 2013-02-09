@@ -1,0 +1,127 @@
+Shop:
+    type: entity
+    table: shop
+    fields:
+        id:
+            id: true
+            type: integer
+            unsigned: false
+            nullable: false
+            generator:
+                strategy: IDENTITY
+        name:
+            type: string
+            length: 64
+            fixed: false
+            nullable: true
+        longDesc:
+            type: text
+            nullable: true
+            column: long_desc
+        coordLat:
+            type: decimal
+            nullable: true
+            column: coord_lat
+        coordLong:
+            type: decimal
+            nullable: true
+            column: coord_long
+        web:
+            type: string
+            length: 64
+            fixed: false
+            nullable: true
+        contactPhone:
+            type: string
+            length: 64
+            fixed: false
+            nullable: true
+            column: contact_phone
+        contactFax:
+            type: string
+            length: 64
+            fixed: false
+            nullable: true
+            column: contact_fax
+        contactEmail:
+            type: string
+            length: 64
+            fixed: false
+            nullable: true
+            column: contact_email
+        slug:
+            type: string
+            length: 64
+            fixed: false
+            nullable: false
+    manyToMany:
+        category:
+            targetEntity: Category
+            cascade: {  }
+            mappedBy: null
+            inversedBy: shop
+            joinTable:
+                name: shop_has_category
+                joinColumns:
+                    -
+                        name: shop_id
+                        referencedColumnName: id
+                inverseJoinColumns:
+                    -
+                        name: category_id
+                        referencedColumnName: id
+            orderBy: null
+        comment:
+            targetEntity: Comment
+            cascade: {  }
+            mappedBy: null
+            inversedBy: shop
+            joinTable:
+                name: shop_has_comment
+                joinColumns:
+                    -
+                        name: shop_id
+                        referencedColumnName: id
+                inverseJoinColumns:
+                    -
+                        name: comment_id
+                        referencedColumnName: id
+            orderBy: null
+    manyToOne:
+        user:
+            targetEntity: User
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                user_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+        city:
+            targetEntity: City
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                city_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+        mainShop:
+            targetEntity: Shop
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                main_shop_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+        state:
+            targetEntity: State
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                state_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

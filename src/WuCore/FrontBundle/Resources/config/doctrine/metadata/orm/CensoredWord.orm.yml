@@ -1,0 +1,26 @@
+CensoredWord:
+    type: entity
+    table: censored_word
+    fields:
+        id:
+            id: true
+            type: integer
+            unsigned: false
+            nullable: false
+            generator:
+                strategy: IDENTITY
+        value:
+            type: string
+            length: 128
+            fixed: false
+            nullable: true
+        slug:
+            type: string
+            length: 128
+            fixed: false
+            nullable: true
+        createdAt:
+            type: datetime
+            nullable: false
+            column: created_at
+    lifecycleCallbacks: {  }

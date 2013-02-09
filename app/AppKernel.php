@@ -22,6 +22,9 @@ class AppKernel extends Kernel
             new WuCore\ResourcesBundle\WuCoreResourcesBundle(),
             new WuCore\CentralBundle\WuCoreCentralBundle(),
             new FOS\UserBundle\FOSUserBundle(),
+            new WuCore\FrontBundle\WuCoreFrontBundle(),
+            new WuCore\ProductBundle\WuCoreProductBundle(),
+            new WuCore\StatsBundle\WuCoreStatsBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

@@ -3,8 +3,8 @@ parameters:
     database_host: 127.0.0.1
     database_port: null
     database_name_front: wuzbest_front
-    database_name_product: wuzbest_front
-    database_name_stat: wuzbest_front
+    database_name_stat: wuzbest_stats
+    database_name_product: wuzbest_products
     database_user: root
     database_password: null
     mailer_transport: smtp

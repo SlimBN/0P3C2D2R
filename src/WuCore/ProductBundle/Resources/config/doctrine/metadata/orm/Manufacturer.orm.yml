@@ -1,0 +1,214 @@
+Manufacturer:
+    type: entity
+    table: manufacturer
+    fields:
+        id:
+            id: true
+            type: integer
+            unsigned: false
+            nullable: false
+            generator:
+                strategy: IDENTITY
+        name:
+            type: string
+            length: 64
+            fixed: false
+            nullable: false
+        adress:
+            type: string
+            length: 64
+            fixed: false
+            nullable: true
+        hqLat:
+            type: decimal
+            nullable: true
+            column: hq_lat
+        hqLong:
+            type: decimal
+            nullable: true
+            column: hq_long
+        web:
+            type: string
+            length: 64
+            fixed: false
+            nullable: true
+        longDesc:
+            type: text
+            nullable: true
+            column: long_desc
+        foundedAt:
+            type: date
+            nullable: true
+            column: founded_at
+        closedAt:
+            type: date
+            nullable: true
+            column: closed_at
+        createdAt:
+            type: datetime
+            nullable: false
+            column: created_at
+        updatedAt:
+            type: datetime
+            nullable: false
+            column: updated_at
+        contactPhone:
+            type: string
+            length: 64
+            fixed: false
+            nullable: true
+            column: contact_phone
+        contactFax:
+            type: string
+            length: 64
+            fixed: false
+            nullable: true
+            column: contact_fax
+        contactEmail:
+            type: string
+            length: 64
+            fixed: false
+            nullable: true
+            column: contact_email
+        slug:
+            type: string
+            length: 64
+            fixed: false
+            nullable: false
+        stockRef:
+            type: string
+            length: 16
+            fixed: false
+            nullable: true
+            column: stock_ref
+        stockValue:
+            type: float
+            nullable: true
+            column: stock_value
+        stockDir:
+            type: string
+            length: null
+            fixed: false
+            nullable: true
+            column: stock_dir
+    manyToMany:
+        category:
+            targetEntity: Category
+            cascade: {  }
+            mappedBy: null
+            inversedBy: manufacturer
+            joinTable:
+                name: manufacturer_has_category
+                joinColumns:
+                    -
+                        name: manufacturer_id
+                        referencedColumnName: id
+                inverseJoinColumns:
+                    -
+                        name: category_id
+                        referencedColumnName: id
+            orderBy: null
+        comment:
+            targetEntity: Comment
+            cascade: {  }
+            mappedBy: null
+            inversedBy: manufacturer
+            joinTable:
+                name: manufacturer_has_comment
+                joinColumns:
+                    -
+                        name: manufacturer_id
+                        referencedColumnName: id
+                inverseJoinColumns:
+                    -
+                        name: comment_id
+                        referencedColumnName: id
+            orderBy: null
+        picture:
+            targetEntity: Picture
+            cascade: {  }
+            mappedBy: null
+            inversedBy: manufacturer
+            joinTable:
+                name: manufacturer_has_picture
+                joinColumns:
+                    -
+                        name: manufacturer_id
+                        referencedColumnName: id
+                inverseJoinColumns:
+                    -
+                        name: picture_id
+                        referencedColumnName: id
+            orderBy: null
+        stockTimeline:
+            targetEntity: StockTimeline
+            cascade: {  }
+            mappedBy: null
+            inversedBy: manufacturer
+            joinTable:
+                name: manufacturer_has_stock_timeline
+                joinColumns:
+                    -
+                        name: manufacturer_id
+                        referencedColumnName: id
+                inverseJoinColumns:
+                    -
+                        name: stock_timeline_id
+                        referencedColumnName: id
+            orderBy: null
+    manyToOne:
+        user:
+            targetEntity: User
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                user_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+        country:
+            targetEntity: Country
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                country_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+        city:
+            targetEntity: City
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                city_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+        owner:
+            targetEntity: Manufacturer
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                owner_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+        cover:
+            targetEntity: Picture
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                cover_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+        state:
+            targetEntity: State
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                state_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

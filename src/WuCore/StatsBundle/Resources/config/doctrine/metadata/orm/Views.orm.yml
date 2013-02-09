@@ -1,0 +1,89 @@
+Views:
+    type: entity
+    table: views
+    fields:
+        id:
+            id: true
+            type: integer
+            unsigned: false
+            nullable: false
+            generator:
+                strategy: IDENTITY
+        createdAt:
+            type: datetime
+            nullable: false
+            column: created_at
+    manyToOne:
+        user:
+            targetEntity: User
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                user_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+        product:
+            targetEntity: Product
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                product_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+        manufacturer:
+            targetEntity: Manufacturer
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                manufacturer_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+        shop:
+            targetEntity: Shop
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                shop_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+        supply:
+            targetEntity: Supply
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                supply_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+        comparaison:
+            targetEntity: Comparaison
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                comparaison_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+        device:
+            targetEntity: Device
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                device_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+        post:
+            targetEntity: Post
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                post_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

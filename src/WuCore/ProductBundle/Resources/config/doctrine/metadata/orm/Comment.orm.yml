@@ -1,0 +1,80 @@
+Comment:
+    type: entity
+    table: comment
+    fields:
+        id:
+            id: true
+            type: integer
+            unsigned: false
+            nullable: false
+            generator:
+                strategy: IDENTITY
+        content:
+            type: text
+            nullable: true
+        createdAt:
+            type: datetime
+            nullable: true
+            column: created_at
+        isInFavor:
+            type: string
+            length: null
+            fixed: false
+            nullable: true
+            column: is_in_favor
+    manyToMany:
+        comparaison:
+            targetEntity: Comparaison
+            cascade: {  }
+            mappedBy: comment
+            inversedBy: null
+            joinTable: null
+            orderBy: null
+        manufacturer:
+            targetEntity: Manufacturer
+            cascade: {  }
+            mappedBy: comment
+            inversedBy: null
+            joinTable: null
+            orderBy: null
+        product:
+            targetEntity: Product
+            cascade: {  }
+            mappedBy: comment
+            inversedBy: null
+            joinTable: null
+            orderBy: null
+        shop:
+            targetEntity: Shop
+            cascade: {  }
+            mappedBy: comment
+            inversedBy: null
+            joinTable: null
+            orderBy: null
+        supply:
+            targetEntity: Supply
+            cascade: {  }
+            mappedBy: comment
+            inversedBy: null
+            joinTable: null
+            orderBy: null
+    manyToOne:
+        parent:
+            targetEntity: Comment
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                parent_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+        user:
+            targetEntity: User
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                user_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

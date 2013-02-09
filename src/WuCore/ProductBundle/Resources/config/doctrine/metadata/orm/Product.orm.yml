@@ -1,0 +1,148 @@
+Product:
+    type: entity
+    table: product
+    fields:
+        id:
+            id: true
+            type: integer
+            unsigned: false
+            nullable: false
+            generator:
+                strategy: IDENTITY
+        name:
+            type: string
+            length: 64
+            fixed: false
+            nullable: false
+        refname:
+            type: string
+            length: 64
+            fixed: false
+            nullable: true
+        createdAt:
+            type: datetime
+            nullable: false
+            column: created_at
+        updatedAt:
+            type: datetime
+            nullable: false
+            column: updated_at
+        releasedAt:
+            type: date
+            nullable: true
+            column: released_at
+        longDesc:
+            type: text
+            nullable: true
+            column: long_desc
+        manufacturerId:
+            type: integer
+            unsigned: false
+            nullable: false
+            column: manufacturer_id
+        slug:
+            type: string
+            length: 64
+            fixed: false
+            nullable: false
+    manyToMany:
+        category:
+            targetEntity: Category
+            cascade: {  }
+            mappedBy: null
+            inversedBy: product
+            joinTable:
+                name: product_has_category
+                joinColumns:
+                    -
+                        name: product_id
+                        referencedColumnName: id
+                inverseJoinColumns:
+                    -
+                        name: category_id
+                        referencedColumnName: id
+            orderBy: null
+        comment:
+            targetEntity: Comment
+            cascade: {  }
+            mappedBy: null
+            inversedBy: product
+            joinTable:
+                name: product_has_comment
+                joinColumns:
+                    -
+                        name: product_id
+                        referencedColumnName: id
+                inverseJoinColumns:
+                    -
+                        name: comment_id
+                        referencedColumnName: id
+            orderBy: null
+        picture:
+            targetEntity: Picture
+            cascade: {  }
+            mappedBy: null
+            inversedBy: product
+            joinTable:
+                name: product_has_picture
+                joinColumns:
+                    -
+                        name: product_id
+                        referencedColumnName: id
+                inverseJoinColumns:
+                    -
+                        name: picture_id
+                        referencedColumnName: id
+            orderBy: null
+        price:
+            targetEntity: Price
+            cascade: {  }
+            mappedBy: null
+            inversedBy: product
+            joinTable:
+                name: product_has_price
+                joinColumns:
+                    -
+                        name: product_id
+                        referencedColumnName: id
+                inverseJoinColumns:
+                    -
+                        name: price_id
+                        referencedColumnName: id
+            orderBy: null
+        specification:
+            targetEntity: Specification
+            cascade: {  }
+            mappedBy: null
+            inversedBy: product
+            joinTable:
+                name: product_has_specification
+                joinColumns:
+                    -
+                        name: product_id
+                        referencedColumnName: id
+                inverseJoinColumns:
+                    -
+                        name: specification_id
+                        referencedColumnName: id
+            orderBy: null
+    manyToOne:
+        originalProduct:
+            targetEntity: Product
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                original_product_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+        brag:
+            targetEntity: User
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                brag_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

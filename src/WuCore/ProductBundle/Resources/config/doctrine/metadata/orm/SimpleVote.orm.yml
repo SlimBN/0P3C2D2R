@@ -1,0 +1,66 @@
+SimpleVote:
+    type: entity
+    table: simple_vote
+    fields:
+        id:
+            id: true
+            type: integer
+            unsigned: false
+            nullable: false
+            generator:
+                strategy: IDENTITY
+        isInFavor:
+            type: boolean
+            nullable: false
+            column: is_in_favor
+        createdAt:
+            type: datetime
+            nullable: false
+            column: created_at
+    manyToOne:
+        shop:
+            targetEntity: Shop
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                shop_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+        manufacturer:
+            targetEntity: Manufacturer
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                manufacturer_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+        answer:
+            targetEntity: Answer
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                answer_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+        comment:
+            targetEntity: Comment
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                comment_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+        product:
+            targetEntity: Product
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                product_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }
