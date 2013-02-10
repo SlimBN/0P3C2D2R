@@ -88,7 +88,6 @@ class Product
     /**
      * @var \Doctrine\Common\Collections\Collection
      *
-     * @ORM\ManyToMany(targetEntity="Category", inversedBy="product")
      * @ORM\JoinTable(name="product_has_category",
      *   joinColumns={
      *     @ORM\JoinColumn(name="product_id", referencedColumnName="id")
@@ -418,6 +417,19 @@ class Product
     public function getCategory()
     {
         return $this->category;
+    }
+
+    /**
+     * Set category
+     *
+     * @param \WuCore\ProductBundle\Entity\Category $category
+     * @return Product
+     */
+    public function setCategory(\WuCore\ProductBundle\Entity\Category $category = null)
+    {
+        $this->category = $category;
+    
+        return $this;
     }
 
     /**

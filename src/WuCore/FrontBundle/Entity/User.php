@@ -143,7 +143,7 @@ class User
     /**
      * @var \Doctrine\Common\Collections\Collection
      *
-     * @ORM\ManyToMany(targetEntity="Credibility", inversedBy="user")
+     * 
      * @ORM\JoinTable(name="user_has_credibility",
      *   joinColumns={
      *     @ORM\JoinColumn(name="user_id", referencedColumnName="id")
@@ -611,10 +611,10 @@ class User
     /**
      * Add credibility
      *
-     * @param \WuCore\FrontBundle\Entity\Credibility $credibility
+     * 
      * @return User
      */
-    public function addCredibility(\WuCore\FrontBundle\Entity\Credibility $credibility)
+    public function addCredibility(\WuCore\ProductBundle\Entity\Credibility $credibility)
     {
         $this->credibility[] = $credibility;
     
@@ -624,9 +624,8 @@ class User
     /**
      * Remove credibility
      *
-     * @param \WuCore\FrontBundle\Entity\Credibility $credibility
      */
-    public function removeCredibility(\WuCore\FrontBundle\Entity\Credibility $credibility)
+    public function removeCredibility(\WuCore\ProductBundle\Entity\Credibility $credibility)
     {
         $this->credibility->removeElement($credibility);
     }

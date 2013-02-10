@@ -4,7 +4,7 @@ namespace WuCore\ProductBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use WuCore\FrontBundle\Entity\User;
-use WuCore\ProductBundle\Entity\Product:
+use WuCore\ProductBundle\Entity\Product;
 use WuCore\ProductBundle\Entity\Category;
 use WuCore\ProductBundle\Entity\Comment;
 
