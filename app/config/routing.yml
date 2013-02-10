@@ -1,4 +1,4 @@
-wu_core_central:
+wu_core_front:
     resource: "@WuCoreCentralBundle/Controller/"
     type:     annotation
     prefix:   /

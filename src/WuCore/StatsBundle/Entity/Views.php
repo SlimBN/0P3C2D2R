@@ -31,7 +31,7 @@ class Views
     /**
      * @var \User
      *
-     * @ORM\ManyToOne(targetEntity="User")
+     * @ORM\ManyToOne(targetEntity="WuCore\FrontBundle\Entity\User")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="user_id", referencedColumnName="id")
      * })
@@ -41,7 +41,7 @@ class Views
     /**
      * @var \Product
      *
-     * @ORM\ManyToOne(targetEntity="Product")
+     * @ORM\ManyToOne(targetEntity="WuCore\ProductBundle\Entity\Product")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="product_id", referencedColumnName="id")
      * })
@@ -51,7 +51,7 @@ class Views
     /**
      * @var \Manufacturer
      *
-     * @ORM\ManyToOne(targetEntity="Manufacturer")
+     * @ORM\ManyToOne(targetEntity="WuCore\ProductBundle\Entity\Manufacturer")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="manufacturer_id", referencedColumnName="id")
      * })
@@ -61,7 +61,7 @@ class Views
     /**
      * @var \Shop
      *
-     * @ORM\ManyToOne(targetEntity="Shop")
+     * @ORM\ManyToOne(targetEntity="WuCore\ProductBundle\Entity\Shop")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="shop_id", referencedColumnName="id")
      * })
@@ -71,7 +71,7 @@ class Views
     /**
      * @var \Supply
      *
-     * @ORM\ManyToOne(targetEntity="Supply")
+     * @ORM\ManyToOne(targetEntity="WuCore\ProductBundle\Entity\Supply")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="supply_id", referencedColumnName="id")
      * })
@@ -81,7 +81,7 @@ class Views
     /**
      * @var \Comparaison
      *
-     * @ORM\ManyToOne(targetEntity="Comparaison")
+     * @ORM\ManyToOne(targetEntity="WuCore\ProductBundle\Entity\Comparaison")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="comparaison_id", referencedColumnName="id")
      * })
@@ -101,7 +101,7 @@ class Views
     /**
      * @var \Post
      *
-     * @ORM\ManyToOne(targetEntity="Post")
+     * @ORM\ManyToOne(targetEntity="WuCore\FrontBundle\Entity\Post")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="post_id", referencedColumnName="id")
      * })

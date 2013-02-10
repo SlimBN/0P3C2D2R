@@ -1,0 +1,4 @@
+wu_core_product_product:
+    resource: "@WuCoreProductBundle/Resources/config/routing/product.yml"
+    prefix:   /product
+

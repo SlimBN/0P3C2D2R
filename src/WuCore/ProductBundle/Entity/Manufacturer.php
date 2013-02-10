@@ -173,7 +173,7 @@ class Manufacturer
     /**
      * @var \Doctrine\Common\Collections\Collection
      *
-     * @ORM\ManyToMany(targetEntity="Picture", inversedBy="manufacturer")
+     * @ORM\ManyToMany(targetEntity="WuCore\FrontBundle\Entity\Picture", inversedBy="manufacturer")
      * @ORM\JoinTable(name="manufacturer_has_picture",
      *   joinColumns={
      *     @ORM\JoinColumn(name="manufacturer_id", referencedColumnName="id")
@@ -188,7 +188,7 @@ class Manufacturer
     /**
      * @var \Doctrine\Common\Collections\Collection
      *
-     * @ORM\ManyToMany(targetEntity="StockTimeline", inversedBy="manufacturer")
+     * @ORM\ManyToMany(targetEntity="WuCore\StatsBundle\Entity\StockTimeline", inversedBy="manufacturer")
      * @ORM\JoinTable(name="manufacturer_has_stock_timeline",
      *   joinColumns={
      *     @ORM\JoinColumn(name="manufacturer_id", referencedColumnName="id")
@@ -203,7 +203,7 @@ class Manufacturer
     /**
      * @var \User
      *
-     * @ORM\ManyToOne(targetEntity="User")
+     * @ORM\ManyToOne(targetEntity="WuCore\FrontBundle\Entity\User")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="user_id", referencedColumnName="id")
      * })
@@ -213,7 +213,7 @@ class Manufacturer
     /**
      * @var \Country
      *
-     * @ORM\ManyToOne(targetEntity="Country")
+     * @ORM\ManyToOne(targetEntity="WuCore\FrontBundle\Entity\Country")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="country_id", referencedColumnName="id")
      * })
@@ -223,7 +223,7 @@ class Manufacturer
     /**
      * @var \City
      *
-     * @ORM\ManyToOne(targetEntity="City")
+     * @ORM\ManyToOne(targetEntity="WuCore\FrontBundle\Entity\City")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="city_id", referencedColumnName="id")
      * })
@@ -243,7 +243,7 @@ class Manufacturer
     /**
      * @var \Picture
      *
-     * @ORM\ManyToOne(targetEntity="Picture")
+     * @ORM\ManyToOne(targetEntity="WuCore\FrontBundle\Entity\Picture")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="cover_id", referencedColumnName="id")
      * })
@@ -253,7 +253,7 @@ class Manufacturer
     /**
      * @var \State
      *
-     * @ORM\ManyToOne(targetEntity="State")
+     * @ORM\ManyToOne(targetEntity="WuCore\FrontBundle\Entity\State")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="state_id", referencedColumnName="id")
      * })

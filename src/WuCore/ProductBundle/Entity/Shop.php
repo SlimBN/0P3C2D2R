@@ -117,7 +117,7 @@ class Shop
     /**
      * @var \User
      *
-     * @ORM\ManyToOne(targetEntity="User")
+     * @ORM\ManyToOne(targetEntity="WuCore\FrontBundle\Entity\User")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="user_id", referencedColumnName="id")
      * })
@@ -127,7 +127,7 @@ class Shop
     /**
      * @var \City
      *
-     * @ORM\ManyToOne(targetEntity="City")
+     * @ORM\ManyToOne(targetEntity="WuCore\FrontBundle\Entity\City")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="city_id", referencedColumnName="id")
      * })
@@ -147,7 +147,7 @@ class Shop
     /**
      * @var \State
      *
-     * @ORM\ManyToOne(targetEntity="State")
+     * @ORM\ManyToOne(targetEntity="WuCore\FrontBundle\Entity\State")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="state_id", referencedColumnName="id")
      * })

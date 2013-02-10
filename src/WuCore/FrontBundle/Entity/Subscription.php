@@ -53,7 +53,7 @@ class Subscription
     /**
      * @var \Product
      *
-     * @ORM\ManyToOne(targetEntity="Product")
+     * @ORM\ManyToOne(targetEntity="WuCore\ProductBundle\Entity\Product")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="product_id", referencedColumnName="id")
      * })
@@ -63,7 +63,7 @@ class Subscription
     /**
      * @var \Comparaison
      *
-     * @ORM\ManyToOne(targetEntity="Comparaison")
+     * @ORM\ManyToOne(targetEntity="WuCore\ProductBundle\Entity\Comparaison")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="comparaison_id", referencedColumnName="id")
      * })
@@ -73,7 +73,7 @@ class Subscription
     /**
      * @var \Manufacturer
      *
-     * @ORM\ManyToOne(targetEntity="Manufacturer")
+     * @ORM\ManyToOne(targetEntity="WuCore\ProductBundle\Entity\Manufacturer")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="manufacturer_id", referencedColumnName="id")
      * })
@@ -83,7 +83,7 @@ class Subscription
     /**
      * @var \Shop
      *
-     * @ORM\ManyToOne(targetEntity="Shop")
+     * @ORM\ManyToOne(targetEntity="WuCore\ProductBundle\Entity\Shop")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="shop_id", referencedColumnName="id")
      * })

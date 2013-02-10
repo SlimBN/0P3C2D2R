@@ -69,7 +69,7 @@ class Price
     /**
      * @var \Currency
      *
-     * @ORM\ManyToOne(targetEntity="Currency")
+     * @ORM\ManyToOne(targetEntity="WuCore\FrontBundle\Entity\Currency")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="currency_id", referencedColumnName="id")
      * })

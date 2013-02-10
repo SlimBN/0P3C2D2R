@@ -110,7 +110,7 @@ class Product
     /**
      * @var \Doctrine\Common\Collections\Collection
      *
-     * @ORM\ManyToMany(targetEntity="Picture", inversedBy="product")
+     * @ORM\ManyToMany(targetEntity="WuCore\FrontBundle\Entity\Picture", inversedBy="product")
      * @ORM\JoinTable(name="product_has_picture",
      *   joinColumns={
      *     @ORM\JoinColumn(name="product_id", referencedColumnName="id")
@@ -165,7 +165,7 @@ class Product
     /**
      * @var \User
      *
-     * @ORM\ManyToOne(targetEntity="User")
+     * @ORM\ManyToOne(targetEntity="WuCore\FrontBundle\Entity\User")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="brag_id", referencedColumnName="id")
      * })

@@ -136,7 +136,7 @@ class User
     /**
      * @var \Doctrine\Common\Collections\Collection
      *
-     * @ORM\ManyToMany(targetEntity="Credibility", inversedBy="user")
+     * @ORM\ManyToMany(targetEntity="WuCore\ProductBundle\Entity\Credibility", inversedBy="user")
      * @ORM\JoinTable(name="user_has_credibility",
      *   joinColumns={
      *     @ORM\JoinColumn(name="user_id", referencedColumnName="id")

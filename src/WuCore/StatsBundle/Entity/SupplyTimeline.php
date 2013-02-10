@@ -38,7 +38,7 @@ class SupplyTimeline
     /**
      * @var \Supply
      *
-     * @ORM\ManyToOne(targetEntity="Supply")
+     * @ORM\ManyToOne(targetEntity="WuCore\ProductBundle\Entity\Supply")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="supply_id", referencedColumnName="id")
      * })

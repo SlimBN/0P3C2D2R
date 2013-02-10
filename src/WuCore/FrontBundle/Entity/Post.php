@@ -66,7 +66,7 @@ class Post
     /**
      * @var \Doctrine\Common\Collections\Collection
      *
-     * @ORM\ManyToMany(targetEntity="Comment", inversedBy="post")
+     * @ORM\ManyToMany(targetEntity="WuCore\ProductBundle\Entity\Comment", inversedBy="post")
      * @ORM\JoinTable(name="post_has_comment",
      *   joinColumns={
      *     @ORM\JoinColumn(name="post_id", referencedColumnName="id")
