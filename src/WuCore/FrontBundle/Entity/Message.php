@@ -3,6 +3,9 @@
 namespace WuCore\FrontBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use WuCore\FrontBundle\Entity\User;
+use WuCore\FrontBundle\Entity\AdminContact;
+use WuCore\FrontBundle\Entity\Message;
 
 /**
  * Message

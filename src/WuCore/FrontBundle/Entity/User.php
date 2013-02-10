@@ -3,6 +3,13 @@
 namespace WuCore\FrontBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use WuCore\FrontBundle\Entity\State;
+use WuCore\ProductBundle\Entity\Credibility;
+use WuCore\FrontBundle\Entity\Notification;
+use WuCore\FrontBundle\Entity\City;
+use WuCore\FrontBundle\Entity\Country;
+use WuCore\FrontBundle\Entity\Currency;
+use WuCore\FrontBundle\Entity\Picture;
 
 /**
  * User
@@ -136,7 +143,7 @@ class User
     /**
      * @var \Doctrine\Common\Collections\Collection
      *
-     * @ORM\ManyToMany(targetEntity="WuCore\ProductBundle\Entity\Credibility", inversedBy="user")
+     * @ORM\ManyToMany(targetEntity="Credibility", inversedBy="user")
      * @ORM\JoinTable(name="user_has_credibility",
      *   joinColumns={
      *     @ORM\JoinColumn(name="user_id", referencedColumnName="id")

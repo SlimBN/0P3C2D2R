@@ -3,6 +3,12 @@
 namespace WuCore\ProductBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use WuCore\ProductBundle\Entity\Category;
+use WuCore\ProductBundle\Entity\Comment;
+use WuCore\FrontBundle\Entity\User;
+use WuCore\FrontBundle\Entity\City;
+use WuCore\FrontBundle\Entity\State;
+use WuCore\ProductBundle\Entity\Shop;
 
 /**
  * Shop
@@ -117,7 +123,7 @@ class Shop
     /**
      * @var \User
      *
-     * @ORM\ManyToOne(targetEntity="WuCore\FrontBundle\Entity\User")
+     * @ORM\ManyToOne(targetEntity="User")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="user_id", referencedColumnName="id")
      * })
@@ -127,7 +133,7 @@ class Shop
     /**
      * @var \City
      *
-     * @ORM\ManyToOne(targetEntity="WuCore\FrontBundle\Entity\City")
+     * @ORM\ManyToOne(targetEntity="City")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="city_id", referencedColumnName="id")
      * })
@@ -147,7 +153,7 @@ class Shop
     /**
      * @var \State
      *
-     * @ORM\ManyToOne(targetEntity="WuCore\FrontBundle\Entity\State")
+     * @ORM\ManyToOne(targetEntity="State")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="state_id", referencedColumnName="id")
      * })

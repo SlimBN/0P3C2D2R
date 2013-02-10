@@ -3,6 +3,14 @@
 namespace WuCore\ProductBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use WuCore\ProductBundle\Entity\Product;
+use WuCore\FrontBundle\Entity\Picture;
+use WuCore\ProductBundle\Entity\Comment;
+use WuCore\ProductBundle\Entity\Category;
+use WuCore\FrontBundle\Entity\User;
+use WuCore\ProductBundle\Entity\Price;
+use WuCore\ProductBundle\Entity\Specification;
+
 
 /**
  * Product
@@ -110,7 +118,7 @@ class Product
     /**
      * @var \Doctrine\Common\Collections\Collection
      *
-     * @ORM\ManyToMany(targetEntity="WuCore\FrontBundle\Entity\Picture", inversedBy="product")
+     * @ORM\ManyToMany(targetEntity="Picture", inversedBy="product")
      * @ORM\JoinTable(name="product_has_picture",
      *   joinColumns={
      *     @ORM\JoinColumn(name="product_id", referencedColumnName="id")
@@ -165,7 +173,7 @@ class Product
     /**
      * @var \User
      *
-     * @ORM\ManyToOne(targetEntity="WuCore\FrontBundle\Entity\User")
+     * @ORM\ManyToOne(targetEntity="User")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="brag_id", referencedColumnName="id")
      * })

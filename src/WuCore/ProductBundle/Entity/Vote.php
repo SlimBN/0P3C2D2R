@@ -3,6 +3,11 @@
 namespace WuCore\ProductBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use WuCore\FrontBundle\Entity\User;
+use WuCore\FrontBundle\Entity\Post;
+use WuCore\ProductBundle\Entity\Comparaison;
+use WuCore\ProductBundle\Entity\Product;
+use WuCore\ProductBundle\Entity\Specification;
 
 /**
  * Vote
@@ -45,7 +50,7 @@ class Vote
     /**
      * @var \User
      *
-     * @ORM\ManyToOne(targetEntity="WuCore\FrontBundle\Entity\User")
+     * @ORM\ManyToOne(targetEntity="User")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="user_id", referencedColumnName="id")
      * })
@@ -55,7 +60,7 @@ class Vote
     /**
      * @var \Post
      *
-     * @ORM\ManyToOne(targetEntity="WuCore\FrontBundle\Entity\Post")
+     * @ORM\ManyToOne(targetEntity="Post")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="post_id", referencedColumnName="id")
      * })

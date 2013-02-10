@@ -3,6 +3,10 @@
 namespace WuCore\ProductBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use WuCore\FrontBundle\Entity\User;
+use WuCore\ProductBundle\Entity\Product:
+use WuCore\ProductBundle\Entity\Category;
+use WuCore\ProductBundle\Entity\Comment;
 
 /**
  * Comparaison
@@ -83,7 +87,7 @@ class Comparaison
     /**
      * @var \User
      *
-     * @ORM\ManyToOne(targetEntity="WuCore\FrontBundle\Entity\User")
+     * @ORM\ManyToOne(targetEntity="User")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="user_id", referencedColumnName="id")
      * })

@@ -3,6 +3,9 @@
 namespace WuCore\FrontBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use WuCore\FrontBundle\Entity\User;
+use WuCore\ProductBundle\Entity\Product;
+use WuCore\FrontBundle\Entity\BoardFolder;
 
 /**
  * WishItem
@@ -48,7 +51,7 @@ class WishItem
     /**
      * @var \Product
      *
-     * @ORM\ManyToOne(targetEntity="WuCore\ProductBundle\Entity\Product")
+     * @ORM\ManyToOne(targetEntity="Product")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="product_id", referencedColumnName="id")
      * })

@@ -3,7 +3,8 @@
 namespace WuCore\FrontBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-
+use WuCore\FrontBundle\Entity\Picture;
+use WuCore\FrontBundle\Entity\User;
 /**
  * BoardFolder
  *

@@ -3,6 +3,13 @@
 namespace WuCore\ProductBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use WuCore\ProductBundle\Entity\Comparaison;
+use WuCore\ProductBundle\Entity\Manufacturer;
+use WuCore\ProductBundle\Entity\Product;
+use WuCore\ProductBundle\Entity\Shop;
+use WuCore\ProductBundle\Entity\Supply;
+use WuCore\FrontBundle\Entity\User;
+use WuCore\ProductBundle\Entity\Comment;
 
 /**
  * Comment
@@ -90,7 +97,7 @@ class Comment
     /**
      * @var \User
      *
-     * @ORM\ManyToOne(targetEntity="WuCore\FrontBundle\Entity\User")
+     * @ORM\ManyToOne(targetEntity="User")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="user_id", referencedColumnName="id")
      * })
