@@ -8,6 +8,21 @@ wu_core_resources:
     type:     annotation
     prefix:   /
 
+wu_core_front:
+    resource: "@WuCoreFrontBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
+wu_core_product:
+    resource: "@WuCoreProductBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
+wu_core_stats:
+    resource: "@WuCoreStatsBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
 fos_user_security:
     resource: "@FOSUserBundle/Resources/config/routing/security.xml"
 
