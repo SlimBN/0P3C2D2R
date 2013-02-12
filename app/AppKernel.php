@@ -19,7 +19,7 @@ class AppKernel extends Kernel {
             new JMS\DiExtraBundle\JMSDiExtraBundle($this),
             new JMS\SecurityExtraBundle\JMSSecurityExtraBundle(),
             new WuCore\ResourcesBundle\WuCoreResourcesBundle(),
-            new WuCore\CentralBundle\WuCoreCentralBundle(),
+            //new WuCore\CentralBundle\WuCoreCentralBundle(),
             new FOS\UserBundle\FOSUserBundle(),
             new WuCore\FrontBundle\WuCoreFrontBundle(),
             new WuCore\ProductBundle\WuCoreProductBundle(),

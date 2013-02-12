@@ -39,7 +39,6 @@ class Views
     /**
      * @var \User
      *
-     * @ORM\ManyToOne(targetEntity="User")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="user_id", referencedColumnName="id")
      * })
@@ -49,7 +48,6 @@ class Views
     /**
      * @var \Product
      *
-     * @ORM\ManyToOne(targetEntity="Product")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="product_id", referencedColumnName="id")
      * })
@@ -59,7 +57,6 @@ class Views
     /**
      * @var \Manufacturer
      *
-     * @ORM\ManyToOne(targetEntity="Manufacturer")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="manufacturer_id", referencedColumnName="id")
      * })
@@ -69,7 +66,6 @@ class Views
     /**
      * @var \Shop
      *
-     * @ORM\ManyToOne(targetEntity="Shop")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="shop_id", referencedColumnName="id")
      * })
@@ -79,7 +75,6 @@ class Views
     /**
      * @var \Supply
      *
-     * @ORM\ManyToOne(targetEntity="Supply")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="supply_id", referencedColumnName="id")
      * })
@@ -89,7 +84,6 @@ class Views
     /**
      * @var \Comparaison
      *
-     * @ORM\ManyToOne(targetEntity="Comparaison")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="comparaison_id", referencedColumnName="id")
      * })
@@ -99,7 +93,6 @@ class Views
     /**
      * @var \Device
      *
-     * @ORM\ManyToOne(targetEntity="Device")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="device_id", referencedColumnName="id")
      * })
@@ -109,7 +102,6 @@ class Views
     /**
      * @var \Post
      *
-     * @ORM\ManyToOne(targetEntity="Post")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="post_id", referencedColumnName="id")
      * })

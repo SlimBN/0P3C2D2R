@@ -50,7 +50,6 @@ class Vote
     /**
      * @var \User
      *
-     * @ORM\ManyToOne(targetEntity="User")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="user_id", referencedColumnName="id")
      * })
@@ -60,7 +59,6 @@ class Vote
     /**
      * @var \Post
      *
-     * @ORM\ManyToOne(targetEntity="Post")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="post_id", referencedColumnName="id")
      * })
@@ -70,7 +68,6 @@ class Vote
     /**
      * @var \Comparaison
      *
-     * @ORM\ManyToOne(targetEntity="Comparaison")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="comparaison_id", referencedColumnName="id")
      * })
@@ -80,7 +77,6 @@ class Vote
     /**
      * @var \Product
      *
-     * @ORM\ManyToOne(targetEntity="Product")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="product_id", referencedColumnName="id")
      * })
@@ -90,7 +86,7 @@ class Vote
     /**
      * @var \Specification
      *
-     * @ORM\ManyToOne(targetEntity="Specification")
+     * 
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="specification_id", referencedColumnName="id")
      * })

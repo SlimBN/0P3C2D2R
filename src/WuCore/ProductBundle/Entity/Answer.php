@@ -48,14 +48,12 @@ class Answer
     /**
      * @var \Doctrine\Common\Collections\Collection
      *
-     * @ORM\ManyToMany(targetEntity="Question", mappedBy="answer")
      */
     private $question;
 
     /**
      * @var \Answer
      *
-     * @ORM\ManyToOne(targetEntity="Answer")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="parent_id", referencedColumnName="id")
      * })
@@ -65,7 +63,6 @@ class Answer
     /**
      * @var \User
      *
-     * @ORM\ManyToOne(targetEntity="User")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="user_id", referencedColumnName="id")
      * })

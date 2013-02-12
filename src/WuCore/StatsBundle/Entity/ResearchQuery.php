@@ -54,7 +54,6 @@ class ResearchQuery
     /**
      * @var \Doctrine\Common\Collections\Collection
      *
-     * @ORM\ManyToMany(targetEntity="User", inversedBy="researchQuery")
      * @ORM\JoinTable(name="research_query_has_user",
      *   joinColumns={
      *     @ORM\JoinColumn(name="research_query_id", referencedColumnName="id")
@@ -69,7 +68,6 @@ class ResearchQuery
     /**
      * @var \Device
      *
-     * @ORM\ManyToOne(targetEntity="Device")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="device_id", referencedColumnName="id")
      * })

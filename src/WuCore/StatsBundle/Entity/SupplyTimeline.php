@@ -39,7 +39,6 @@ class SupplyTimeline
     /**
      * @var \Supply
      *
-     * @ORM\ManyToOne(targetEntity="Supply")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="supply_id", referencedColumnName="id")
      * })

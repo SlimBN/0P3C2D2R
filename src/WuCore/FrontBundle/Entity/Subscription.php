@@ -43,7 +43,6 @@ class Subscription
     /**
      * @var \Doctrine\Common\Collections\Collection
      *
-     * @ORM\ManyToMany(targetEntity="Notification", inversedBy="subscription")
      * @ORM\JoinTable(name="subscription_has_notification",
      *   joinColumns={
      *     @ORM\JoinColumn(name="subscription_id", referencedColumnName="id")
@@ -58,7 +57,6 @@ class Subscription
     /**
      * @var \Product
      *
-     * @ORM\ManyToOne(targetEntity="Product")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="product_id", referencedColumnName="id")
      * })
@@ -68,7 +66,6 @@ class Subscription
     /**
      * @var \Comparaison
      *
-     * @ORM\ManyToOne(targetEntity="Comparaison")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="comparaison_id", referencedColumnName="id")
      * })
@@ -78,7 +75,6 @@ class Subscription
     /**
      * @var \Manufacturer
      *
-     * @ORM\ManyToOne(targetEntity="Manufacturer")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="manufacturer_id", referencedColumnName="id")
      * })
@@ -88,7 +84,6 @@ class Subscription
     /**
      * @var \Shop
      *
-     * @ORM\ManyToOne(targetEntity="Shop")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="shop_id", referencedColumnName="id")
      * })

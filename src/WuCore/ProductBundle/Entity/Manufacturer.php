@@ -152,7 +152,6 @@ class Manufacturer
     /**
      * @var \Doctrine\Common\Collections\Collection
      *
-     * @ORM\ManyToMany(targetEntity="Category", inversedBy="manufacturer")
      * @ORM\JoinTable(name="manufacturer_has_category",
      *   joinColumns={
      *     @ORM\JoinColumn(name="manufacturer_id", referencedColumnName="id")
@@ -167,7 +166,6 @@ class Manufacturer
     /**
      * @var \Doctrine\Common\Collections\Collection
      *
-     * @ORM\ManyToMany(targetEntity="Comment", inversedBy="manufacturer")
      * @ORM\JoinTable(name="manufacturer_has_comment",
      *   joinColumns={
      *     @ORM\JoinColumn(name="manufacturer_id", referencedColumnName="id")
@@ -182,7 +180,6 @@ class Manufacturer
     /**
      * @var \Doctrine\Common\Collections\Collection
      *
-     * @ORM\ManyToMany(targetEntity="Picture", inversedBy="manufacturer")
      * @ORM\JoinTable(name="manufacturer_has_picture",
      *   joinColumns={
      *     @ORM\JoinColumn(name="manufacturer_id", referencedColumnName="id")
@@ -197,7 +194,6 @@ class Manufacturer
     /**
      * @var \Doctrine\Common\Collections\Collection
      *
-     * @ORM\ManyToMany(targetEntity="StockTimeline", inversedBy="manufacturer")
      * @ORM\JoinTable(name="manufacturer_has_stock_timeline",
      *   joinColumns={
      *     @ORM\JoinColumn(name="manufacturer_id", referencedColumnName="id")
@@ -212,7 +208,6 @@ class Manufacturer
     /**
      * @var \User
      *
-     * @ORM\ManyToOne(targetEntity="user")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="user_id", referencedColumnName="id")
      * })
@@ -222,7 +217,6 @@ class Manufacturer
     /**
      * @var \Country
      *
-     * @ORM\ManyToOne(targetEntity="Country")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="country_id", referencedColumnName="id")
      * })
@@ -232,7 +226,6 @@ class Manufacturer
     /**
      * @var \City
      *
-     * @ORM\ManyToOne(targetEntity="City")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="city_id", referencedColumnName="id")
      * })
@@ -242,7 +235,6 @@ class Manufacturer
     /**
      * @var \Manufacturer
      *
-     * @ORM\ManyToOne(targetEntity="Manufacturer")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="owner_id", referencedColumnName="id")
      * })
@@ -252,7 +244,6 @@ class Manufacturer
     /**
      * @var \Picture
      *
-     * @ORM\ManyToOne(targetEntity="Picture")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="cover_id", referencedColumnName="id")
      * })
@@ -262,7 +253,6 @@ class Manufacturer
     /**
      * @var \State
      *
-     * @ORM\ManyToOne(targetEntity="State")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="state_id", referencedColumnName="id")
      * })

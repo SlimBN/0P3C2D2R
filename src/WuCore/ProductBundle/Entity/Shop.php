@@ -93,7 +93,6 @@ class Shop
     /**
      * @var \Doctrine\Common\Collections\Collection
      *
-     * @ORM\ManyToMany(targetEntity="Category", inversedBy="shop")
      * @ORM\JoinTable(name="shop_has_category",
      *   joinColumns={
      *     @ORM\JoinColumn(name="shop_id", referencedColumnName="id")
@@ -108,7 +107,6 @@ class Shop
     /**
      * @var \Doctrine\Common\Collections\Collection
      *
-     * @ORM\ManyToMany(targetEntity="Comment", inversedBy="shop")
      * @ORM\JoinTable(name="shop_has_comment",
      *   joinColumns={
      *     @ORM\JoinColumn(name="shop_id", referencedColumnName="id")
@@ -123,7 +121,6 @@ class Shop
     /**
      * @var \User
      *
-     * @ORM\ManyToOne(targetEntity="User")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="user_id", referencedColumnName="id")
      * })
@@ -133,7 +130,6 @@ class Shop
     /**
      * @var \City
      *
-     * @ORM\ManyToOne(targetEntity="City")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="city_id", referencedColumnName="id")
      * })
@@ -143,7 +139,6 @@ class Shop
     /**
      * @var \Shop
      *
-     * @ORM\ManyToOne(targetEntity="Shop")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="main_shop_id", referencedColumnName="id")
      * })
@@ -153,7 +148,6 @@ class Shop
     /**
      * @var \State
      *
-     * @ORM\ManyToOne(targetEntity="State")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="state_id", referencedColumnName="id")
      * })

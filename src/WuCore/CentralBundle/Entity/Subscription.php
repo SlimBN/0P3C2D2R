@@ -3,6 +3,10 @@
 namespace WuCore\CentralBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use WuCore\ProductBundle\Entity\Product;
+use WuCore\ProductBundle\Entity\Comparaison;
+use WuCore\ProductBundle\Entity\Manufacturer;
+use WuCore\ProductBundle\Entity\Shop;
 
 /**
  * Subscription
@@ -54,7 +58,6 @@ class Subscription
     /**
      * @var \Product
      *
-     * @ORM\ManyToOne(targetEntity="Product")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="product_id", referencedColumnName="id")
      * })
@@ -64,7 +67,6 @@ class Subscription
     /**
      * @var \Comparaison
      *
-     * @ORM\ManyToOne(targetEntity="Comparaison")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="comparaison_id", referencedColumnName="id")
      * })
@@ -74,7 +76,6 @@ class Subscription
     /**
      * @var \Manufacturer
      *
-     * @ORM\ManyToOne(targetEntity="Manufacturer")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="manufacturer_id", referencedColumnName="id")
      * })
@@ -84,7 +85,6 @@ class Subscription
     /**
      * @var \Shop
      *
-     * @ORM\ManyToOne(targetEntity="Shop")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="shop_id", referencedColumnName="id")
      * })

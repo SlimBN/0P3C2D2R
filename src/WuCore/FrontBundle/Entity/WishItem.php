@@ -41,7 +41,6 @@ class WishItem
     /**
      * @var \BoardFolder
      *
-     * @ORM\ManyToOne(targetEntity="BoardFolder")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="board_folder_id", referencedColumnName="id")
      * })
@@ -51,7 +50,6 @@ class WishItem
     /**
      * @var \Product
      *
-     * @ORM\ManyToOne(targetEntity="Product")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="product_id", referencedColumnName="id")
      * })
@@ -61,7 +59,6 @@ class WishItem
     /**
      * @var \User
      *
-     * @ORM\ManyToOne(targetEntity="User")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="user_id", referencedColumnName="id")
      * })

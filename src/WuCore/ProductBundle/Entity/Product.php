@@ -102,7 +102,6 @@ class Product
     /**
      * @var \Doctrine\Common\Collections\Collection
      *
-     * @ORM\ManyToMany(targetEntity="Comment", inversedBy="product")
      * @ORM\JoinTable(name="product_has_comment",
      *   joinColumns={
      *     @ORM\JoinColumn(name="product_id", referencedColumnName="id")
@@ -117,7 +116,6 @@ class Product
     /**
      * @var \Doctrine\Common\Collections\Collection
      *
-     * @ORM\ManyToMany(targetEntity="Picture", inversedBy="product")
      * @ORM\JoinTable(name="product_has_picture",
      *   joinColumns={
      *     @ORM\JoinColumn(name="product_id", referencedColumnName="id")
@@ -132,7 +130,6 @@ class Product
     /**
      * @var \Doctrine\Common\Collections\Collection
      *
-     * @ORM\ManyToMany(targetEntity="Price", inversedBy="product")
      * @ORM\JoinTable(name="product_has_price",
      *   joinColumns={
      *     @ORM\JoinColumn(name="product_id", referencedColumnName="id")
@@ -147,7 +144,6 @@ class Product
     /**
      * @var \Doctrine\Common\Collections\Collection
      *
-     * @ORM\ManyToMany(targetEntity="Specification", inversedBy="product")
      * @ORM\JoinTable(name="product_has_specification",
      *   joinColumns={
      *     @ORM\JoinColumn(name="product_id", referencedColumnName="id")
@@ -162,7 +158,6 @@ class Product
     /**
      * @var \Product
      *
-     * @ORM\ManyToOne(targetEntity="Product")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="original_product_id", referencedColumnName="id")
      * })
@@ -172,7 +167,6 @@ class Product
     /**
      * @var \User
      *
-     * @ORM\ManyToOne(targetEntity="User")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="brag_id", referencedColumnName="id")
      * })
