@@ -1,3 +1,8 @@
+wu_core_components:
+    resource: "@WuCoreComponentsBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
 wu_core_front:
     resource: "@WuCoreCentralBundle/Controller/"
     type:     annotation

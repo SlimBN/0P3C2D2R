@@ -1,0 +1,77 @@
+{% block collection_widget %}
+{% spaceless %}
+    <script type="text/javascript" src="{{ asset('https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js'|join) }}"></script>
+    <div class="collection">
+        {% if prototype is defined %}
+            {% set attr = attr|merge({'data-prototype': block('collection_item_widget') }) %}
+        {% endif %}
+        <div {{ block('widget_container_attributes') }}>
+            {{ form_errors(form) }}
+            <ul>
+            {% for rows in form %}
+                <li>
+                {% set fieldNum = 1 %}
+                {% for row in rows %}
+                    <div class="field{{ fieldNum }}">
+                    {{ form_label(row) }}
+                    {{ form_widget(row, { 'attr': { 'class': 'test' }}) }}
+                    </div>
+                    {% set fieldNum = fieldNum + 1 %}
+                {% endfor %}
+                    <a class="remove" title="Remove" href="javascript:void()">
+                        <span>Delete {{ form.name|title }}</span>
+                    </a>
+                    <div class="clear"></div>
+                </li>
+            {% endfor %}
+            </ul>
+            {{ form_rest(form) }}
+        </div>
+        <div class="clear"></div>
+        <a class="add{{ id }}" title="Add" href="javascript:void()">
+            <div style="display: none;"></div>
+            <span>Add {{ form.name|title }}</span>
+        </a>
+    </div>
+    <div class="clear"></div>
+    <script type="text/javascript">
+        var elementCount{{ id }} = '{{ form | length }}';
+        jQuery(document).ready(function() {
+            jQuery('.remove').live('click', function() {
+                jQuery(this).parent('li').fadeOut().remove();
+                return false;
+            });
+        })
+        jQuery(document).ready(function() {
+            jQuery('.add{{ id }}').click(function() {
+                var elementList = jQuery('#{{ id }}');
+                var newWidget = elementList.attr('data-prototype');
+                newWidget = newWidget.replace(/{{ form.name }}___name__/g, "{{ form.name }}_"+elementCount{{ id }});
+                newWidget = newWidget.replace(/{{ form.name }}]\[__name__/g, "{{ form.name }}]["+elementCount{{ id }});
+                elementCount{{ id }}++;
+                jQuery('#{{ id }}>ul').append(newWidget);
+                return false;
+            });
+        })
+    </script>
+{% endspaceless %}
+{% endblock collection_widget %}
+
+{% block collection_item_widget %}
+{% spaceless %}
+    <li>
+    {% set fieldNum = 1 %}
+    {% for row in prototype %}
+        <div class="field{{ fieldNum }}">
+        {{ form_label(row) }}
+        {{ form_widget(row, { 'attr': { 'class': 'test' }}) }}
+        </div>
+        {% set fieldNum = fieldNum + 1 %}
+    {% endfor %}
+        <a class="remove" title="Remove" href="javascript:void()">
+            <span>Delete {{ form.name|title }}</span>
+        </a>
+        <div class="clear"></div>
+    </li>
+{% endspaceless %}
+{% endblock collection_item_widget %}

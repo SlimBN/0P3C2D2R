@@ -1,0 +1,141 @@
+/* Example tokeninput style #2: Facebook style */
+ul.token-input-list-windecomulti {
+    cursor: text;
+    display: inline-block;
+    width: 206px;
+    padding: 0 6px;
+    margin: 0;
+    margin-bottom: 9px;
+    font-size: 14px;
+    line-height: 20px;
+    color: #555555;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+}
+ul.token-input-list-windecomulti {
+    background-color: #ffffff;
+    border: 1px solid #cccccc;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+    -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+    -webkit-transition: border linear 0.2s, box-shadow linear 0.2s;
+    -moz-transition: border linear 0.2s, box-shadow linear 0.2s;
+    -o-transition: border linear 0.2s, box-shadow linear 0.2s;
+    transition: border linear 0.2s, box-shadow linear 0.2s;
+}
+
+ul.token-input-list-windecomulti:focus {
+    border-color: rgba(82, 168, 236, 0.8);
+    outline: 0;
+    outline: thin dotted \9;
+    /* IE6-9 */
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(82, 168, 236, 0.6);
+    -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(82, 168, 236, 0.6);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(82, 168, 236, 0.6);
+}
+
+ul.token-input-list-windecomulti li input {
+    border: 0;
+    width: 100px;
+    padding: 3px 8px;
+    background-color: white;
+    margin: 2px 0;
+    -webkit-appearance: caret;
+}
+
+li.token-input-token-windecomulti {
+    overflow: hidden; 
+    height: auto !important; 
+    height: 15px;
+    margin: 3px 0 3px 3px;
+    padding: 1px 3px;
+    color: #000;
+    cursor: default;
+    background: #eee;
+    border: 1px solid #ddd;
+    font-size: 13px;
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    float: left;
+    white-space: nowrap;
+    line-height: 20px;
+}
+
+li.token-input-token-windecomulti p {
+    display: inline;
+    padding: 0;
+    margin: 0;
+}
+
+li.token-input-token-windecomulti span {
+    color: #666;
+    margin-left: 5px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+li.token-input-selected-token-windecomulti {
+    background-color: #5670a6;
+    border: 1px solid #3b5998;
+    color: #fff;
+}
+
+li.token-input-input-token-windecomulti {
+    float: left;
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+
+div.token-input-dropdown-windecomulti {
+    position: absolute;
+    width: 218px;
+    background-color: #fff;
+    overflow: hidden;
+    border-left: 1px solid #ccc;
+    border-right: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    cursor: default;
+    font-size: 11px;
+    font-family: Verdana;
+    z-index: 1;
+}
+
+div.token-input-dropdown-windecomulti p {
+    margin: 0;
+    padding: 5px;
+    font-weight: bold;
+    color: #777;
+}
+
+div.token-input-dropdown-windecomulti ul {
+    margin: 0;
+    padding: 0;
+}
+
+div.token-input-dropdown-windecomulti ul li {
+    background-color: #fff;
+    padding: 3px;
+    margin: 0;
+    list-style-type: none;
+}
+
+div.token-input-dropdown-windecomulti ul li.token-input-dropdown-item-windecomulti {
+    background-color: #fff;
+}
+
+div.token-input-dropdown-windecomulti ul li.token-input-dropdown-item2-windecomulti {
+    background-color: #fff;
+}
+
+div.token-input-dropdown-windecomulti ul li em {
+    font-weight: bold;
+    font-style: normal;
+}
+
+div.token-input-dropdown-windecomulti ul li.token-input-selected-dropdown-item-windecomulti {
+    background-color: #3b5998;
+    color: #fff;
+}

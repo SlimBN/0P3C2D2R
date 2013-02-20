@@ -1,0 +1,29 @@
+<?xml version="1.0" ?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <parameters>
+        <parameter key="wucore.form.type.autocomplete.class">WuCore\ComponentsBundle\Form\Type\AutocompleteType</parameter>
+    </parameters>
+    <services>
+        <service id="wucore.form.type.autocomplete" class="%wucore.form.type.autocomplete.class%">
+            <tag name="form.type" alias="autocomplete" />
+            <argument type="service" id="doctrine.orm.entity_manager"/>
+        </service>
+    </services>
+    <!--
+    <parameters>
+        <parameter key="wu_core_components.example.class">WuCore\ComponentsBundle\Example</parameter>
+    </parameters>
+
+    <services>
+        <service id="wu_core_components.example" class="%wu_core_components.example.class%">
+            <argument type="service" id="service_id" />
+            <argument>plain_value</argument>
+            <argument>%parameter_name%</argument>
+        </service>
+    </services>
+    -->
+</container>

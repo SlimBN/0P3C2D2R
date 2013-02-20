@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Comparaison
  *
- * @ORM\Table(name="comparaison")
+ * @ORM\Table(name="wuzbest_products.comparaison")
  * @ORM\Entity
  */
 class Comparaison

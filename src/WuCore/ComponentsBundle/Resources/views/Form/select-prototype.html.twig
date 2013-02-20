@@ -1,0 +1,32 @@
+{% block choice_widget_collapsed %}
+{% spaceless %}
+    {% if choices|length > 10 %}
+    <!-- enhanced select -->
+    <link rel="stylesheet" href="{{ asset('lib/chosen/chosen.css') }}" />
+    {% endif %}
+    <select {{ block('widget_attributes') }}{% if multiple %} multiple="multiple"{% endif %}>
+        {% if empty_value is not none %}
+            <option value=""{% if required %} disabled="disabled"{% if value is empty %} selected="selected"{% endif %}{% endif %}>{{ empty_value|trans({}, translation_domain) }}</option>
+        {% endif %}
+        {% if preferred_choices|length > 0 %}
+            {% set options = preferred_choices %}
+            {{ block('choice_widget_options') }}    
+            {% if choices|length > 0 and separator is not none %}
+                <option disabled="disabled">{{ separator }}</option>
+            {% endif %}
+        {% endif %}
+        {% set options = choices %}
+        {{ block('choice_widget_options') }}
+    </select>
+    {% if choices|length > 10 %}
+    <script src="{{ asset('lib/chosen/chosen.jquery.min.js') }}"></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $("#{{ id }}").chosen({
+                allow_single_deselect: true
+            });
+        });
+    </script>
+    {% endif %}
+{% endspaceless %}
+{% endblock choice_widget_collapsed %}

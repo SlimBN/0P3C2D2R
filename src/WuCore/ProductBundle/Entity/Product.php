@@ -3,15 +3,18 @@
 namespace WuCore\ProductBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-
+use WuCore\ProductBundle\Entity\Category;
+use WuCore\ProductBundle\Entity\Comment;
+use WuCore\FrontBundle\Entity\Picture;
+use WuCore\FrontBundle\Entity\User;
 /**
  * Product
  *
- * @ORM\Table(name="product")
+ * @ORM\Table(name="wuzbest_products.product")
  * @ORM\Entity
  */
-class Product
-{
+class Product {
+
     /**
      * @var integer
      *
@@ -163,7 +166,7 @@ class Product
     private $originalProduct;
 
     /**
-     * @var \User
+     * @var \WuCore\FrontBundle\Entity\User
      *
      * @ORM\ManyToOne(targetEntity="WuCore\FrontBundle\Entity\User")
      * @ORM\JoinColumns({
@@ -175,23 +178,20 @@ class Product
     /**
      * Constructor
      */
-    public function __construct()
-    {
+    public function __construct() {
         $this->category = new \Doctrine\Common\Collections\ArrayCollection();
         $this->comment = new \Doctrine\Common\Collections\ArrayCollection();
         $this->picture = new \Doctrine\Common\Collections\ArrayCollection();
         $this->price = new \Doctrine\Common\Collections\ArrayCollection();
         $this->specification = new \Doctrine\Common\Collections\ArrayCollection();
     }
-    
 
     /**
      * Get id
      *
      * @return integer 
      */
-    public function getId()
-    {
+    public function getId() {
         return $this->id;
     }
 
@@ -201,10 +201,9 @@ class Product
      * @param string $name
      * @return Product
      */
-    public function setName($name)
-    {
+    public function setName($name) {
         $this->name = $name;
-    
+
         return $this;
     }
 
@@ -213,8 +212,7 @@ class Product
      *
      * @return string 
      */
-    public function getName()
-    {
+    public function getName() {
         return $this->name;
     }
 
@@ -224,10 +222,9 @@ class Product
      * @param string $refname
      * @return Product
      */
-    public function setRefname($refname)
-    {
+    public function setRefname($refname) {
         $this->refname = $refname;
-    
+
         return $this;
     }
 
@@ -236,8 +233,7 @@ class Product
      *
      * @return string 
      */
-    public function getRefname()
-    {
+    public function getRefname() {
         return $this->refname;
     }
 
@@ -247,10 +243,9 @@ class Product
      * @param \DateTime $createdAt
      * @return Product
      */
-    public function setCreatedAt($createdAt)
-    {
+    public function setCreatedAt($createdAt) {
         $this->createdAt = $createdAt;
-    
+
         return $this;
     }
 
@@ -259,8 +254,7 @@ class Product
      *
      * @return \DateTime 
      */
-    public function getCreatedAt()
-    {
+    public function getCreatedAt() {
         return $this->createdAt;
     }
 
@@ -270,10 +264,9 @@ class Product
      * @param \DateTime $updatedAt
      * @return Product
      */
-    public function setUpdatedAt($updatedAt)
-    {
+    public function setUpdatedAt($updatedAt) {
         $this->updatedAt = $updatedAt;
-    
+
         return $this;
     }
 
@@ -282,8 +275,7 @@ class Product
      *
      * @return \DateTime 
      */
-    public function getUpdatedAt()
-    {
+    public function getUpdatedAt() {
         return $this->updatedAt;
     }
 
@@ -293,10 +285,9 @@ class Product
      * @param \DateTime $releasedAt
      * @return Product
      */
-    public function setReleasedAt($releasedAt)
-    {
+    public function setReleasedAt($releasedAt) {
         $this->releasedAt = $releasedAt;
-    
+
         return $this;
     }
 
@@ -305,8 +296,7 @@ class Product
      *
      * @return \DateTime 
      */
-    public function getReleasedAt()
-    {
+    public function getReleasedAt() {
         return $this->releasedAt;
     }
 
@@ -316,10 +306,9 @@ class Product
      * @param string $longDesc
      * @return Product
      */
-    public function setLongDesc($longDesc)
-    {
+    public function setLongDesc($longDesc) {
         $this->longDesc = $longDesc;
-    
+
         return $this;
     }
 
@@ -328,8 +317,7 @@ class Product
      *
      * @return string 
      */
-    public function getLongDesc()
-    {
+    public function getLongDesc() {
         return $this->longDesc;
     }
 
@@ -339,10 +327,9 @@ class Product
      * @param integer $manufacturerId
      * @return Product
      */
-    public function setManufacturerId($manufacturerId)
-    {
+    public function setManufacturerId($manufacturerId) {
         $this->manufacturerId = $manufacturerId;
-    
+
         return $this;
     }
 
@@ -351,8 +338,7 @@ class Product
      *
      * @return integer 
      */
-    public function getManufacturerId()
-    {
+    public function getManufacturerId() {
         return $this->manufacturerId;
     }
 
@@ -362,10 +348,9 @@ class Product
      * @param string $slug
      * @return Product
      */
-    public function setSlug($slug)
-    {
+    public function setSlug($slug) {
         $this->slug = $slug;
-    
+
         return $this;
     }
 
@@ -374,8 +359,7 @@ class Product
      *
      * @return string 
      */
-    public function getSlug()
-    {
+    public function getSlug() {
         return $this->slug;
     }
 
@@ -385,10 +369,9 @@ class Product
      * @param \WuCore\ProductBundle\Entity\Category $category
      * @return Product
      */
-    public function addCategory(\WuCore\ProductBundle\Entity\Category $category)
-    {
+    public function addCategory(\WuCore\ProductBundle\Entity\Category $category) {
         $this->category[] = $category;
-    
+
         return $this;
     }
 
@@ -397,8 +380,7 @@ class Product
      *
      * @param \WuCore\ProductBundle\Entity\Category $category
      */
-    public function removeCategory(\WuCore\ProductBundle\Entity\Category $category)
-    {
+    public function removeCategory(\WuCore\ProductBundle\Entity\Category $category) {
         $this->category->removeElement($category);
     }
 
@@ -407,8 +389,7 @@ class Product
      *
      * @return \Doctrine\Common\Collections\Collection 
      */
-    public function getCategory()
-    {
+    public function getCategory() {
         return $this->category;
     }
 
@@ -418,10 +399,9 @@ class Product
      * @param \WuCore\ProductBundle\Entity\Comment $comment
      * @return Product
      */
-    public function addComment(\WuCore\ProductBundle\Entity\Comment $comment)
-    {
+    public function addComment(\WuCore\ProductBundle\Entity\Comment $comment) {
         $this->comment[] = $comment;
-    
+
         return $this;
     }
 
@@ -430,8 +410,7 @@ class Product
      *
      * @param \WuCore\ProductBundle\Entity\Comment $comment
      */
-    public function removeComment(\WuCore\ProductBundle\Entity\Comment $comment)
-    {
+    public function removeComment(\WuCore\ProductBundle\Entity\Comment $comment) {
         $this->comment->removeElement($comment);
     }
 
@@ -440,31 +419,28 @@ class Product
      *
      * @return \Doctrine\Common\Collections\Collection 
      */
-    public function getComment()
-    {
+    public function getComment() {
         return $this->comment;
     }
 
     /**
      * Add picture
      *
-     * @param \WuCore\ProductBundle\Entity\Picture $picture
+     * @param \WuCore\FrontBundle\Entity\Picture $picture
      * @return Product
      */
-    public function addPicture(\WuCore\ProductBundle\Entity\Picture $picture)
-    {
+    public function addPicture(WuCore\FrontBundle\Entity\Picture $picture) {
         $this->picture[] = $picture;
-    
+
         return $this;
     }
 
     /**
      * Remove picture
      *
-     * @param \WuCore\ProductBundle\Entity\Picture $picture
+     * @param WuCore\FrontBundle\Entity\Picture $picture
      */
-    public function removePicture(\WuCore\ProductBundle\Entity\Picture $picture)
-    {
+    public function removePicture(WuCore\FrontBundle\Entity\Picture $picture) {
         $this->picture->removeElement($picture);
     }
 
@@ -473,8 +449,7 @@ class Product
      *
      * @return \Doctrine\Common\Collections\Collection 
      */
-    public function getPicture()
-    {
+    public function getPicture() {
         return $this->picture;
     }
 
@@ -484,10 +459,9 @@ class Product
      * @param \WuCore\ProductBundle\Entity\Price $price
      * @return Product
      */
-    public function addPrice(\WuCore\ProductBundle\Entity\Price $price)
-    {
+    public function addPrice(\WuCore\ProductBundle\Entity\Price $price) {
         $this->price[] = $price;
-    
+
         return $this;
     }
 
@@ -496,8 +470,7 @@ class Product
      *
      * @param \WuCore\ProductBundle\Entity\Price $price
      */
-    public function removePrice(\WuCore\ProductBundle\Entity\Price $price)
-    {
+    public function removePrice(\WuCore\ProductBundle\Entity\Price $price) {
         $this->price->removeElement($price);
     }
 
@@ -506,8 +479,7 @@ class Product
      *
      * @return \Doctrine\Common\Collections\Collection 
      */
-    public function getPrice()
-    {
+    public function getPrice() {
         return $this->price;
     }
 
@@ -517,10 +489,9 @@ class Product
      * @param \WuCore\ProductBundle\Entity\Specification $specification
      * @return Product
      */
-    public function addSpecification(\WuCore\ProductBundle\Entity\Specification $specification)
-    {
+    public function addSpecification(\WuCore\ProductBundle\Entity\Specification $specification) {
         $this->specification[] = $specification;
-    
+
         return $this;
     }
 
@@ -529,8 +500,7 @@ class Product
      *
      * @param \WuCore\ProductBundle\Entity\Specification $specification
      */
-    public function removeSpecification(\WuCore\ProductBundle\Entity\Specification $specification)
-    {
+    public function removeSpecification(\WuCore\ProductBundle\Entity\Specification $specification) {
         $this->specification->removeElement($specification);
     }
 
@@ -539,8 +509,7 @@ class Product
      *
      * @return \Doctrine\Common\Collections\Collection 
      */
-    public function getSpecification()
-    {
+    public function getSpecification() {
         return $this->specification;
     }
 
@@ -550,10 +519,9 @@ class Product
      * @param \WuCore\ProductBundle\Entity\Product $originalProduct
      * @return Product
      */
-    public function setOriginalProduct(\WuCore\ProductBundle\Entity\Product $originalProduct = null)
-    {
+    public function setOriginalProduct(\WuCore\ProductBundle\Entity\Product $originalProduct = null) {
         $this->originalProduct = $originalProduct;
-    
+
         return $this;
     }
 
@@ -562,31 +530,29 @@ class Product
      *
      * @return \WuCore\ProductBundle\Entity\Product 
      */
-    public function getOriginalProduct()
-    {
+    public function getOriginalProduct() {
         return $this->originalProduct;
     }
 
     /**
      * Set brag
      *
-     * @param \WuCore\ProductBundle\Entity\User $brag
+     * @param WuCore\FrontBundle\Entity\User $brag
      * @return Product
      */
-    public function setBrag(\WuCore\ProductBundle\Entity\User $brag = null)
-    {
+    public function setBrag(WuCore\FrontBundle\Entity\User $brag = null) {
         $this->brag = $brag;
-    
+
         return $this;
     }
 
     /**
      * Get brag
      *
-     * @return \WuCore\ProductBundle\Entity\User 
+     * @return WuCore\FrontBundle\Entity\User 
      */
-    public function getBrag()
-    {
+    public function getBrag() {
         return $this->brag;
     }
+
 }

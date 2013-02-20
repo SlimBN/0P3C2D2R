@@ -1,0 +1,28 @@
+{% block autocomplete_widget %}
+{% spaceless %}
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script type="text/javascript" src="{{ asset('lib/tokeninput/jquery.tokeninput.js') }}"></script>
+<link rel="stylesheet" type="text/css" href="{{ asset('css/token-input.css') }}" />
+<link rel="stylesheet" type="text/css" href="{{ asset('css/token-input-windeco.css') }}" />
+<link rel="stylesheet" type="text/css" href="{{ asset('css/token-input-windecomulti.css') }}" />
+    {% set type = type|default('text') %}
+<input type="{{ type }}" {{ block('widget_attributes') }}/>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#{{ id }}").tokenInput("{{ path(callback_route) }}", {
+            hintText: "{{ "autocomplete.hint"|trans({'%min_char%': min_char}) }}",
+            noResultsText: "{{ "autocomplete.noresult"|trans }}",
+            searchingText: "{{ "autocomplete.progress"|trans }}",
+            theme: "windeco{% if multiple %}multi{% endif %}",
+            searchDelay: 750,
+            minChars: {{ min_char }},
+            {% if token_limit %}tokenLimit: {{ token_limit }},{% endif %}
+            preventDuplicates: true,
+            {% if value is not empty %}prePopulate: [
+                {% for child_value in value %}{id: '{{ child_value['id'] }}', name: "{{ child_value['name'] }}"},{% endfor %}
+            ]{% endif %}
+        });
+    });
+</script>
+{% endspaceless %}
+{% endblock autocomplete_widget %}

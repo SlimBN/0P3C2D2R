@@ -7,28 +7,27 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
-use WuCore\ProductBundle\Entity\Product;
-use WuCore\ProductBundle\Form\ProductType;
-use Symfony\Component\HttpFoundation\Response;
+use WuCore\ProductBundle\Entity\Comparaison;
+use WuCore\ProductBundle\Form\ComparaisonType;
 
 /**
- * Product controller.
+ * Comparaison controller.
  *
- * @Route("/product")
+ * @Route("/comparaison")
  */
-class ProductController extends Controller
+class ComparaisonController extends Controller
 {
     /**
-     * Lists all Product entities.
+     * Lists all Comparaison entities.
      *
-     * @Route("/", name="product")
+     * @Route("/", name="comparaison")
      * @Template()
      */
     public function indexAction()
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entities = $em->getRepository('WuCoreProductBundle:Product')->findAll();
+        $entities = $em->getRepository('WuCoreProductBundle:Comparaison')->findAll();
 
         return array(
             'entities' => $entities,
@@ -36,19 +35,19 @@ class ProductController extends Controller
     }
 
     /**
-     * Finds and displays a Product entity.
+     * Finds and displays a Comparaison entity.
      *
-     * @Route("/{id}/show", name="product_show")
+     * @Route("/{id}/show", name="comparaison_show")
      * @Template()
      */
     public function showAction($id)
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entity = $em->getRepository('WuCoreProductBundle:Product')->find($id);
+        $entity = $em->getRepository('WuCoreProductBundle:Comparaison')->find($id);
 
         if (!$entity) {
-            throw $this->createNotFoundException('Unable to find Product entity.');
+            throw $this->createNotFoundException('Unable to find Comparaison entity.');
         }
 
         $deleteForm = $this->createDeleteForm($id);
@@ -60,15 +59,15 @@ class ProductController extends Controller
     }
 
     /**
-     * Displays a form to create a new Product entity.
+     * Displays a form to create a new Comparaison entity.
      *
-     * @Route("/new", name="product_new")
+     * @Route("/new", name="comparaison_new")
      * @Template()
      */
     public function newAction()
     {
-        $entity = new Product();
-        $form   = $this->createForm(new ProductType(), $entity);
+        $entity = new Comparaison();
+        $form   = $this->createForm(new ComparaisonType(), $entity);
 
         return array(
             'entity' => $entity,
@@ -77,16 +76,16 @@ class ProductController extends Controller
     }
 
     /**
-     * Creates a new Product entity.
+     * Creates a new Comparaison entity.
      *
-     * @Route("/create", name="product_create")
+     * @Route("/create", name="comparaison_create")
      * @Method("POST")
-     * @Template("WuCoreProductBundle:Product:new.html.twig")
+     * @Template("WuCoreProductBundle:Comparaison:new.html.twig")
      */
     public function createAction(Request $request)
     {
-        $entity  = new Product();
-        $form = $this->createForm(new ProductType(), $entity);
+        $entity  = new Comparaison();
+        $form = $this->createForm(new ComparaisonType(), $entity);
         $form->bind($request);
 
         if ($form->isValid()) {
@@ -94,7 +93,7 @@ class ProductController extends Controller
             $em->persist($entity);
             $em->flush();
 
-            return $this->redirect($this->generateUrl('product_show', array('id' => $entity->getId())));
+            return $this->redirect($this->generateUrl('comparaison_show', array('id' => $entity->getId())));
         }
 
         return array(
@@ -104,22 +103,22 @@ class ProductController extends Controller
     }
 
     /**
-     * Displays a form to edit an existing Product entity.
+     * Displays a form to edit an existing Comparaison entity.
      *
-     * @Route("/{id}/edit", name="product_edit")
+     * @Route("/{id}/edit", name="comparaison_edit")
      * @Template()
      */
     public function editAction($id)
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entity = $em->getRepository('WuCoreProductBundle:Product')->find($id);
+        $entity = $em->getRepository('WuCoreProductBundle:Comparaison')->find($id);
 
         if (!$entity) {
-            throw $this->createNotFoundException('Unable to find Product entity.');
+            throw $this->createNotFoundException('Unable to find Comparaison entity.');
         }
 
-        $editForm = $this->createForm(new ProductType(), $entity);
+        $editForm = $this->createForm(new ComparaisonType(), $entity);
         $deleteForm = $this->createDeleteForm($id);
 
         return array(
@@ -130,31 +129,31 @@ class ProductController extends Controller
     }
 
     /**
-     * Edits an existing Product entity.
+     * Edits an existing Comparaison entity.
      *
-     * @Route("/{id}/update", name="product_update")
+     * @Route("/{id}/update", name="comparaison_update")
      * @Method("POST")
-     * @Template("WuCoreProductBundle:Product:edit.html.twig")
+     * @Template("WuCoreProductBundle:Comparaison:edit.html.twig")
      */
     public function updateAction(Request $request, $id)
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entity = $em->getRepository('WuCoreProductBundle:Product')->find($id);
+        $entity = $em->getRepository('WuCoreProductBundle:Comparaison')->find($id);
 
         if (!$entity) {
-            throw $this->createNotFoundException('Unable to find Product entity.');
+            throw $this->createNotFoundException('Unable to find Comparaison entity.');
         }
 
         $deleteForm = $this->createDeleteForm($id);
-        $editForm = $this->createForm(new ProductType(), $entity);
+        $editForm = $this->createForm(new ComparaisonType(), $entity);
         $editForm->bind($request);
 
         if ($editForm->isValid()) {
             $em->persist($entity);
             $em->flush();
 
-            return $this->redirect($this->generateUrl('product_edit', array('id' => $id)));
+            return $this->redirect($this->generateUrl('comparaison_edit', array('id' => $id)));
         }
 
         return array(
@@ -165,29 +164,9 @@ class ProductController extends Controller
     }
 
     /**
-     * Searches for a Product entity.
+     * Deletes a Comparaison entity.
      *
-     * @Route("/search", name="_product_search")
-     * @Method("GET")
-     */
-    public function searchAction(){
-        $qb = $this->getDoctrine()->getEntityManager()->createQueryBuilder();
-        $entities = $qb->select('n')->from('WuCore\ProductBundle\Entity\Product', 'n')
-                ->where($qb->expr()->like('n.name', $qb->expr()->literal('%' . $this->getRequest()->query->get('q') . '%')))
-                ->getQuery()
-                ->getResult();
-        $result = array();
-        foreach ($entities as $key => $entity):
-            $result[$key]['id'] = $entity->getId();
-            $result[$key]['name'] = $entity->getName();
-        endforeach;
-        return new Response(json_encode($result));
-        
-    }
-    /**
-     * Deletes a Product entity.
-     *
-     * @Route("/{id}/delete", name="product_delete")
+     * @Route("/{id}/delete", name="comparaison_delete")
      * @Method("POST")
      */
     public function deleteAction(Request $request, $id)
@@ -197,17 +176,17 @@ class ProductController extends Controller
 
         if ($form->isValid()) {
             $em = $this->getDoctrine()->getManager();
-            $entity = $em->getRepository('WuCoreProductBundle:Product')->find($id);
+            $entity = $em->getRepository('WuCoreProductBundle:Comparaison')->find($id);
 
             if (!$entity) {
-                throw $this->createNotFoundException('Unable to find Product entity.');
+                throw $this->createNotFoundException('Unable to find Comparaison entity.');
             }
 
             $em->remove($entity);
             $em->flush();
         }
 
-        return $this->redirect($this->generateUrl('product'));
+        return $this->redirect($this->generateUrl('comparaison'));
     }
 
     private function createDeleteForm($id)

@@ -27,6 +27,11 @@ fos_user:
 twig:
     debug:            "%kernel.debug%"
     strict_variables: "%kernel.debug%"
+    form:
+        resources:
+            - 'WuCoreComponentsBundle:Form:collection-prototype.html.twig'
+            - 'WuCoreComponentsBundle:Form:autocomplete-prototype.html.twig'
+            - 'WuCoreComponentsBundle:Form:select-prototype.html.twig'
 
 # Assetic Configuration
 assetic:
