@@ -3,6 +3,8 @@
 namespace WuCore\ProductBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use WuCore\ProductBundle\Entity\Product;
+use WuCore\ProductBundle\Entity\Specification;
 
 /**
  * Specification

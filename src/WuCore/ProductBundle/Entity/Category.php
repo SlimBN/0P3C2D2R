@@ -3,6 +3,10 @@
 namespace WuCore\ProductBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use WuCore\ProductBundle\Entity\Category;
+use WuCore\ProductBundle\Entity\Shop;
+use WuCore\ProductBundle\Entity\Product;
+use WuCore\ProductBundle\Entity\Manufacturer;
 
 /**
  * Category

@@ -1,6 +1,6 @@
 <?php
 
-namespace WuCore\FrontBundle\Entity;
+namespace WuCore\CentralBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use WuCore\ProductBundle\Entity\Comment;
@@ -9,6 +9,7 @@ use WuCore\ProductBundle\Entity\Comment;
  * Post
  *
  * @ORM\Table(name="post")
+ * @ORM\Entity(repositoryClass="WuCore\CentralBundle\Repository\PostRepository")
  * @ORM\Entity
  */
 class Post
@@ -248,10 +249,10 @@ class Post
     /**
      * Add comment
      *
-     * @param \WuCore\FrontBundle\Entity\Comment $comment
+     * @param \WuCore\CentralBundle\Entity\Comment $comment
      * @return Post
      */
-    public function addComment(\WuCore\FrontBundle\Entity\Comment $comment)
+    public function addComment(\WuCore\CentralBundle\Entity\Comment $comment)
     {
         $this->comment[] = $comment;
     
@@ -261,9 +262,9 @@ class Post
     /**
      * Remove comment
      *
-     * @param \WuCore\FrontBundle\Entity\Comment $comment
+     * @param \WuCore\CentralBundle\Entity\Comment $comment
      */
-    public function removeComment(\WuCore\FrontBundle\Entity\Comment $comment)
+    public function removeComment(\WuCore\CentralBundle\Entity\Comment $comment)
     {
         $this->comment->removeElement($comment);
     }
@@ -281,10 +282,10 @@ class Post
     /**
      * Set author
      *
-     * @param \WuCore\FrontBundle\Entity\User $author
+     * @param \WuCore\CentralBundle\Entity\User $author
      * @return Post
      */
-    public function setAuthor(\WuCore\FrontBundle\Entity\User $author = null)
+    public function setAuthor(\WuCore\CentralBundle\Entity\User $author = null)
     {
         $this->author = $author;
     
@@ -294,7 +295,7 @@ class Post
     /**
      * Get author
      *
-     * @return \WuCore\FrontBundle\Entity\User 
+     * @return \WuCore\CentralBundle\Entity\User 
      */
     public function getAuthor()
     {

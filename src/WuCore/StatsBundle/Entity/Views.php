@@ -3,6 +3,14 @@
 namespace WuCore\StatsBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use WuCore\FrontBundle\Entity\User;
+use WuCore\ProductBundle\Entity\Product;
+use WuCore\ProductBundle\Entity\Manufacturer;
+use WuCore\ProductBundle\Entity\Shop;
+use WuCore\ProductBundle\Entity\Supply;
+use WuCore\ProductBundle\Entity\Comparaison;
+use WuCore\StatsBundle\Entity\Device;
+use WuCore\FrontBundle\Entity\Post;
 
 /**
  * Views
@@ -31,7 +39,6 @@ class Views
     /**
      * @var \User
      *
-     * @ORM\ManyToOne(targetEntity="WuCore\FrontBundle\Entity\User")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="user_id", referencedColumnName="id")
      * })
@@ -41,7 +48,6 @@ class Views
     /**
      * @var \Product
      *
-     * @ORM\ManyToOne(targetEntity="WuCore\ProductBundle\Entity\Product")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="product_id", referencedColumnName="id")
      * })
@@ -51,7 +57,6 @@ class Views
     /**
      * @var \Manufacturer
      *
-     * @ORM\ManyToOne(targetEntity="WuCore\ProductBundle\Entity\Manufacturer")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="manufacturer_id", referencedColumnName="id")
      * })
@@ -61,7 +66,6 @@ class Views
     /**
      * @var \Shop
      *
-     * @ORM\ManyToOne(targetEntity="WuCore\ProductBundle\Entity\Shop")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="shop_id", referencedColumnName="id")
      * })
@@ -71,7 +75,6 @@ class Views
     /**
      * @var \Supply
      *
-     * @ORM\ManyToOne(targetEntity="WuCore\ProductBundle\Entity\Supply")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="supply_id", referencedColumnName="id")
      * })
@@ -81,7 +84,6 @@ class Views
     /**
      * @var \Comparaison
      *
-     * @ORM\ManyToOne(targetEntity="WuCore\ProductBundle\Entity\Comparaison")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="comparaison_id", referencedColumnName="id")
      * })
@@ -91,7 +93,6 @@ class Views
     /**
      * @var \Device
      *
-     * @ORM\ManyToOne(targetEntity="Device")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="device_id", referencedColumnName="id")
      * })
@@ -101,7 +102,6 @@ class Views
     /**
      * @var \Post
      *
-     * @ORM\ManyToOne(targetEntity="WuCore\FrontBundle\Entity\Post")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="post_id", referencedColumnName="id")
      * })

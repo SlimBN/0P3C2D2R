@@ -3,6 +3,10 @@
 namespace WuCore\ProductBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use WuCore\FrontBundle\Entity\User;
+use WuCore\ProductBundle\Entity\Product;
+use WuCore\ProductBundle\Entity\Category;
+use WuCore\ProductBundle\Entity\Comment;
 
 /**
  * Comparaison
@@ -38,7 +42,6 @@ class Comparaison
     /**
      * @var \Doctrine\Common\Collections\Collection
      *
-     * @ORM\ManyToMany(targetEntity="Comment", inversedBy="comparaison")
      * @ORM\JoinTable(name="comparaison_has_comment",
      *   joinColumns={
      *     @ORM\JoinColumn(name="comparaison_id", referencedColumnName="id")
@@ -53,7 +56,6 @@ class Comparaison
     /**
      * @var \Category
      *
-     * @ORM\ManyToOne(targetEntity="Category")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="category_id", referencedColumnName="id")
      * })
@@ -63,7 +65,6 @@ class Comparaison
     /**
      * @var \Product
      *
-     * @ORM\ManyToOne(targetEntity="Product")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="first_product_id", referencedColumnName="id")
      * })
@@ -83,7 +84,6 @@ class Comparaison
     /**
      * @var \User
      *
-     * @ORM\ManyToOne(targetEntity="WuCore\FrontBundle\Entity\User")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="user_id", referencedColumnName="id")
      * })

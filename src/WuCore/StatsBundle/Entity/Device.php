@@ -3,6 +3,7 @@
 namespace WuCore\StatsBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use WuCore\FrontBundle\Entity\User;
 
 /**
  * Device
@@ -80,7 +81,6 @@ class Device
     /**
      * @var \Doctrine\Common\Collections\Collection
      *
-     * @ORM\ManyToMany(targetEntity="WuCore\FrontBundle\Entity\User", inversedBy="device")
      * @ORM\JoinTable(name="device_has_user",
      *   joinColumns={
      *     @ORM\JoinColumn(name="device_id", referencedColumnName="id")

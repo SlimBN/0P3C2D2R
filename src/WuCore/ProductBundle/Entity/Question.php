@@ -3,6 +3,8 @@
 namespace WuCore\ProductBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use WuCore\ProductBundle\Entity\Answer;
+use WuCore\FrontBundle\Entity\User;
 
 /**
  * Question
@@ -45,7 +47,6 @@ class Question
     /**
      * @var \Doctrine\Common\Collections\Collection
      *
-     * @ORM\ManyToMany(targetEntity="Answer", inversedBy="question")
      * @ORM\JoinTable(name="question_has_answer",
      *   joinColumns={
      *     @ORM\JoinColumn(name="question_id", referencedColumnName="id")
@@ -60,7 +61,6 @@ class Question
     /**
      * @var \User
      *
-     * @ORM\ManyToOne(targetEntity="WuCore\FrontBundle\Entity\User")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="user_id", referencedColumnName="id")
      * })

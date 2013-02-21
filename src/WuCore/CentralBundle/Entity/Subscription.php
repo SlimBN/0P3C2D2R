@@ -1,18 +1,18 @@
 <?php
 
-namespace WuCore\FrontBundle\Entity;
+namespace WuCore\CentralBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use WuCore\ProductBundle\Entity\Comparaison;
-use WuCore\ProductBundle\Entity\Shop;
-use WuCore\ProductBundle\Entity\Manufacturer;
 use WuCore\ProductBundle\Entity\Product;
-use WuCore\FrontBundle\Entity\Notification;
+use WuCore\ProductBundle\Entity\Comparaison;
+use WuCore\ProductBundle\Entity\Manufacturer;
+use WuCore\ProductBundle\Entity\Shop;
 
 /**
  * Subscription
  *
  * @ORM\Table(name="subscription")
+ * @ORM\Entity(repositoryClass="WuCore\CentralBundle\Repository\SbuscriptionRepository")
  * @ORM\Entity
  */
 class Subscription
@@ -43,6 +43,7 @@ class Subscription
     /**
      * @var \Doctrine\Common\Collections\Collection
      *
+     * @ORM\ManyToMany(targetEntity="Notification", inversedBy="subscription")
      * @ORM\JoinTable(name="subscription_has_notification",
      *   joinColumns={
      *     @ORM\JoinColumn(name="subscription_id", referencedColumnName="id")
@@ -158,10 +159,10 @@ class Subscription
     /**
      * Add notification
      *
-     * @param \WuCore\FrontBundle\Entity\Notification $notification
+     * @param \WuCore\CentralBundle\Entity\Notification $notification
      * @return Subscription
      */
-    public function addNotification(\WuCore\FrontBundle\Entity\Notification $notification)
+    public function addNotification(\WuCore\CentralBundle\Entity\Notification $notification)
     {
         $this->notification[] = $notification;
     
@@ -171,9 +172,9 @@ class Subscription
     /**
      * Remove notification
      *
-     * @param \WuCore\FrontBundle\Entity\Notification $notification
+     * @param \WuCore\CentralBundle\Entity\Notification $notification
      */
-    public function removeNotification(\WuCore\FrontBundle\Entity\Notification $notification)
+    public function removeNotification(\WuCore\CentralBundle\Entity\Notification $notification)
     {
         $this->notification->removeElement($notification);
     }
@@ -191,10 +192,10 @@ class Subscription
     /**
      * Set product
      *
-     * @param \WuCore\FrontBundle\Entity\Product $product
+     * @param \WuCore\CentralBundle\Entity\Product $product
      * @return Subscription
      */
-    public function setProduct(\WuCore\FrontBundle\Entity\Product $product = null)
+    public function setProduct(\WuCore\CentralBundle\Entity\Product $product = null)
     {
         $this->product = $product;
     
@@ -204,7 +205,7 @@ class Subscription
     /**
      * Get product
      *
-     * @return \WuCore\FrontBundle\Entity\Product 
+     * @return \WuCore\CentralBundle\Entity\Product 
      */
     public function getProduct()
     {
@@ -214,10 +215,10 @@ class Subscription
     /**
      * Set comparaison
      *
-     * @param \WuCore\FrontBundle\Entity\Comparaison $comparaison
+     * @param \WuCore\CentralBundle\Entity\Comparaison $comparaison
      * @return Subscription
      */
-    public function setComparaison(\WuCore\FrontBundle\Entity\Comparaison $comparaison = null)
+    public function setComparaison(\WuCore\CentralBundle\Entity\Comparaison $comparaison = null)
     {
         $this->comparaison = $comparaison;
     
@@ -227,7 +228,7 @@ class Subscription
     /**
      * Get comparaison
      *
-     * @return \WuCore\FrontBundle\Entity\Comparaison 
+     * @return \WuCore\CentralBundle\Entity\Comparaison 
      */
     public function getComparaison()
     {
@@ -237,10 +238,10 @@ class Subscription
     /**
      * Set manufacturer
      *
-     * @param \WuCore\FrontBundle\Entity\Manufacturer $manufacturer
+     * @param \WuCore\CentralBundle\Entity\Manufacturer $manufacturer
      * @return Subscription
      */
-    public function setManufacturer(\WuCore\FrontBundle\Entity\Manufacturer $manufacturer = null)
+    public function setManufacturer(\WuCore\CentralBundle\Entity\Manufacturer $manufacturer = null)
     {
         $this->manufacturer = $manufacturer;
     
@@ -250,7 +251,7 @@ class Subscription
     /**
      * Get manufacturer
      *
-     * @return \WuCore\FrontBundle\Entity\Manufacturer 
+     * @return \WuCore\CentralBundle\Entity\Manufacturer 
      */
     public function getManufacturer()
     {
@@ -260,10 +261,10 @@ class Subscription
     /**
      * Set shop
      *
-     * @param \WuCore\FrontBundle\Entity\Shop $shop
+     * @param \WuCore\CentralBundle\Entity\Shop $shop
      * @return Subscription
      */
-    public function setShop(\WuCore\FrontBundle\Entity\Shop $shop = null)
+    public function setShop(\WuCore\CentralBundle\Entity\Shop $shop = null)
     {
         $this->shop = $shop;
     
@@ -273,7 +274,7 @@ class Subscription
     /**
      * Get shop
      *
-     * @return \WuCore\FrontBundle\Entity\Shop 
+     * @return \WuCore\CentralBundle\Entity\Shop 
      */
     public function getShop()
     {

@@ -3,6 +3,13 @@
 namespace WuCore\ProductBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use WuCore\ProductBundle\Entity\Comparaison;
+use WuCore\ProductBundle\Entity\Manufacturer;
+use WuCore\ProductBundle\Entity\Product;
+use WuCore\ProductBundle\Entity\Shop;
+use WuCore\ProductBundle\Entity\Supply;
+use WuCore\FrontBundle\Entity\User;
+use WuCore\ProductBundle\Entity\Comment;
 
 /**
  * Comment
@@ -45,42 +52,36 @@ class Comment
     /**
      * @var \Doctrine\Common\Collections\Collection
      *
-     * @ORM\ManyToMany(targetEntity="Comparaison", mappedBy="comment")
      */
     private $comparaison;
 
     /**
      * @var \Doctrine\Common\Collections\Collection
      *
-     * @ORM\ManyToMany(targetEntity="Manufacturer", mappedBy="comment")
      */
     private $manufacturer;
 
     /**
      * @var \Doctrine\Common\Collections\Collection
      *
-     * @ORM\ManyToMany(targetEntity="Product", mappedBy="comment")
      */
     private $product;
 
     /**
      * @var \Doctrine\Common\Collections\Collection
      *
-     * @ORM\ManyToMany(targetEntity="Shop", mappedBy="comment")
      */
     private $shop;
 
     /**
      * @var \Doctrine\Common\Collections\Collection
      *
-     * @ORM\ManyToMany(targetEntity="Supply", mappedBy="comment")
      */
     private $supply;
 
     /**
      * @var \Comment
      *
-     * @ORM\ManyToOne(targetEntity="Comment")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="parent_id", referencedColumnName="id")
      * })
@@ -90,7 +91,6 @@ class Comment
     /**
      * @var \User
      *
-     * @ORM\ManyToOne(targetEntity="WuCore\FrontBundle\Entity\User")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="user_id", referencedColumnName="id")
      * })

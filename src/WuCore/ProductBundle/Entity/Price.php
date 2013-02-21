@@ -3,6 +3,9 @@
 namespace WuCore\ProductBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use WuCore\ProductBundle\Entity\Manufacturer;
+use WuCore\FrontBundle\Entity\Currency;
+use WuCore\ProductBundle\Entity\Product;
 
 /**
  * Price
@@ -52,14 +55,12 @@ class Price
     /**
      * @var \Doctrine\Common\Collections\Collection
      *
-     * @ORM\ManyToMany(targetEntity="Product", mappedBy="price")
      */
     private $product;
 
     /**
      * @var \Manufacturer
      *
-     * @ORM\ManyToOne(targetEntity="Manufacturer")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="manufacturer_id", referencedColumnName="id")
      * })
@@ -69,7 +70,6 @@ class Price
     /**
      * @var \Currency
      *
-     * @ORM\ManyToOne(targetEntity="WuCore\FrontBundle\Entity\Currency")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="currency_id", referencedColumnName="id")
      * })
